@@ -1,0 +1,126 @@
+{
+  "schema": "UNICORE-SITE-SCORECARD-1000-1",
+  "at": "2026-11-17T15:07:00+00:00",
+  "url": "https://portfolio-florent-le-bot.vercel.app",
+  "scope": "site_vitrine portfolio PRO (pas SaaS COMMERCIAL_LIVE)",
+  "total": 845,
+  "max": 1000,
+  "grade": "TRES_BON",
+  "axes": [
+    {
+      "id": "A_dispo",
+      "label": "Disponibilité & routes",
+      "max": 80,
+      "score": 80,
+      "pct": 100.0,
+      "note": "toutes routes 200 + 404 OK"
+    },
+    {
+      "id": "B_lh_perf",
+      "label": "Lighthouse Performance",
+      "max": 100,
+      "score": 97,
+      "pct": 97.0,
+      "note": "LH perf 97/100"
+    },
+    {
+      "id": "C_lh_a11y",
+      "label": "Lighthouse Accessibilité",
+      "max": 100,
+      "score": 100,
+      "pct": 100.0,
+      "note": "LH a11y 100/100"
+    },
+    {
+      "id": "D_lh_bp",
+      "label": "Lighthouse Best Practices",
+      "max": 70,
+      "score": 70,
+      "pct": 100.0,
+      "note": "LH BP 100/100"
+    },
+    {
+      "id": "E_lh_seo",
+      "label": "Lighthouse SEO",
+      "max": 50,
+      "score": 50,
+      "pct": 100.0,
+      "note": "LH SEO 100/100 (complémentaire seulement)"
+    },
+    {
+      "id": "F_seo_unicore",
+      "label": "SEO UNICORE (canonical / JSON-LD / metadata routes)",
+      "max": 120,
+      "score": 40,
+      "pct": 33.3,
+      "note": "seo-audit FAIL: CANONICAL_MISSING + MISSING_LIB_SEO + ROUTE_NO_METADATA:/"
+    },
+    {
+      "id": "G_securite",
+      "label": "Sécurité headers & hardening",
+      "max": 100,
+      "score": 78,
+      "pct": 78.0,
+      "note": "HSTS, DENY, nosniff, referrer, permissions, no X-Powered-By ; CSP absente (-22)"
+    },
+    {
+      "id": "H_rgpd",
+      "label": "RGPD & légal FR",
+      "max": 100,
+      "score": 92,
+      "pct": 92.0,
+      "note": "mentions + confidentialité + footer ; SIRET/adresse éditeur non détaillés (-8)"
+    },
+    {
+      "id": "I_contenu",
+      "label": "Contenu & honnêteté produit",
+      "max": 70,
+      "score": 67,
+      "pct": 95.7,
+      "note": "projets réels, LienMuet2 200, pas de fausses URLs ; 3 démos absentes (-3)"
+    },
+    {
+      "id": "J_ux_ui",
+      "label": "UX/UI visuelle PRO",
+      "max": 70,
+      "score": 65,
+      "pct": 92.9,
+      "note": "brand/hero/CTA/mobile OK ; polish secondaire possible (-5)"
+    },
+    {
+      "id": "K_qualite",
+      "label": "Qualité locale (tests / lint)",
+      "max": 70,
+      "score": 70,
+      "pct": 100.0,
+      "note": "16/16 tests, lint 0"
+    },
+    {
+      "id": "L_snyk",
+      "label": "Sécurité dépendances (Snyk)",
+      "max": 40,
+      "score": 36,
+      "pct": 90.0,
+      "note": "0 vuln ; quota mensuel atteint / monitor CI non prouvé (-4)"
+    },
+    {
+      "id": "M_ci_ops",
+      "label": "CI / pipeline GitHub",
+      "max": 30,
+      "score": 0,
+      "pct": 0.0,
+      "note": "SKIP debt — github-pipeline absent"
+    }
+  ],
+  "penalties_summary": [
+    "SEO UNICORE FAIL (-80 sur 120)",
+    "CSP absente (-22)",
+    "CI GitHub SKIP (0/30)",
+    "SIRET/adresse éditeur incomplets (-8)"
+  ],
+  "non_claims": [
+    "Ce score n'est PAS PRODUCTION_CERTIFIED ASGS",
+    "Ce score n'est PAS un SaaS COMMERCIAL_LIVE",
+    "LH SEO 100 ne remplace pas seo-audit UNICORE"
+  ]
+}

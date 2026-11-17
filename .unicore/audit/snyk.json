@@ -98,11 +98,12 @@
     "autoApproveIgnores": false,
     "approvalWorkflowEnabled": false
   },
-  "summary": "No known vulnerabilities",
+  "summary": "No high or critical severity vulnerabilities",
+  "severityThreshold": "high",
   "filesystemPolicy": false,
   "uniqueCount": 0,
   "projectName": "portfolio-florent",
-  "foundProjectCount": 2,
+  "foundProjectCount": 3,
   "displayTargetFile": "pnpm-lock.yaml",
   "hasUnknownVersions": false,
   "path": "C:\\dev\\moteur\\projets\\portfolio-florent"

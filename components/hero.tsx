@@ -1,4 +1,5 @@
-import { facts, identity } from "@/lib/profile";
+import { defaultPortfolioContent } from "@/lib/content-defaults";
+import type { PortfolioContent } from "@/lib/content-types";
 
 const proofLines = [
   { label: "Cadrage, architecture, risque", state: "P0 → P3" },
@@ -9,7 +10,8 @@ const proofLines = [
   { label: "Audit + restitution", state: "P6 → P8" },
 ] as const;
 
-export function Hero() {
+export function Hero({ content = defaultPortfolioContent }: { content?: PortfolioContent }) {
+  const { identity, hero, facts } = content;
   return (
     <section id="top" className="relative overflow-hidden">
       <div aria-hidden className="grain pointer-events-none absolute inset-0 opacity-60" />
@@ -24,8 +26,8 @@ export function Hero() {
             {identity.role}
           </p>
           <h1 className="mt-7 font-heading text-[clamp(2.6rem,6.4vw,5.2rem)] leading-[0.98] font-bold tracking-[-0.04em]">
-            Des SaaS conçus pour
-            <span className="block text-bronze">tenir en production.</span>
+            {hero.titleLine1}
+            <span className="block text-bronze">{hero.titleLine2}</span>
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted md:text-xl">{identity.lead}</p>
           <div className="mt-10 flex flex-wrap gap-3">
@@ -33,13 +35,13 @@ export function Hero() {
               href="#projets"
               className="rounded-full bg-bronze px-6 py-3.5 font-code text-[13px] tracking-wide text-white shadow-[0_10px_30px_-12px_rgba(154,52,18,0.7)] transition hover:-translate-y-0.5 hover:bg-ink"
             >
-              Voir les projets
+              {hero.primaryCta}
             </a>
             <a
               href="#contact"
               className="rounded-full border border-ink/20 bg-surface/60 px-6 py-3.5 font-code text-[13px] tracking-wide transition hover:-translate-y-0.5 hover:border-ink"
             >
-              Me contacter
+              {hero.secondaryCta}
             </a>
           </div>
         </div>

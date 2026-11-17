@@ -63,13 +63,14 @@
   },
   "authorization": {
     "approver": "Florent Le Bot",
-    "reason": "unicore-portfolio scaffold vitrine PRO",
+    "reason": "Publication portfolio: GitHub+Vercel+Snyk sous WRITE_SHARED (demande explicite Florent)",
     "perimeter": "projets/portfolio-florent site vitrine Next 16",
     "operations": [
-      "WRITE_LOCAL"
+      "WRITE_LOCAL",
+      "WRITE_SHARED"
     ],
-    "at": "2026-11-17T09:56:12+00:00",
-    "expires": "2026-11-17T17:56:11+00:00",
+    "at": "2026-11-17T11:31:27+00:00",
+    "expires": "2026-11-18T23:59:59+00:00",
     "authenticated": false
   },
   "verification": {

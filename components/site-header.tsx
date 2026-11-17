@@ -1,13 +1,21 @@
-import { identity, navigation } from "@/lib/profile";
+import { defaultPortfolioContent } from "@/lib/content-defaults";
+import type { Identity, NavItem } from "@/lib/content-types";
 
-export function SiteHeader() {
+export function SiteHeader({
+  identity = defaultPortfolioContent.identity,
+  navigation = defaultPortfolioContent.navigation,
+}: {
+  identity?: Identity;
+  navigation?: NavItem[];
+}) {
   return (
     <header className="sticky top-0 z-40 border-b border-line/80 bg-canvas/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-3.5">
         <a href="#top" className="group flex items-center gap-2.5">
           <span
             aria-hidden="true"
-            className="grid size-9 place-items-center rounded-lg bg-ink font-code text-[11px] font-semibold tracking-wider text-ember transition-transform group-hover:-rotate-6">
+            className="grid size-9 place-items-center rounded-lg bg-ink font-code text-[11px] font-semibold tracking-wider text-ember transition-transform group-hover:-rotate-6"
+          >
             {identity.initials}
           </span>
           <span className="font-heading text-[1.05rem] font-bold tracking-tight whitespace-nowrap">{identity.name}</span>

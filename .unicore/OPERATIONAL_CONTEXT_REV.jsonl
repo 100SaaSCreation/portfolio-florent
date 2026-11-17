@@ -1,2 +1,3 @@
 {"schema": "UNICORE-OPERATIONAL-CONTEXT-REV-1", "at": "2026-11-17T09:54:30+00:00", "revision": 1, "sha256": "dcc0ff8fb31a87abb99c7f0cf370afc1ade0c9899ed5e21c9a5cfbcf18bc2302", "session_id": "unicore-portfolio"}
 {"schema": "UNICORE-OPERATIONAL-CONTEXT-REV-1", "at": "2026-11-17T09:54:52+00:00", "revision": 2, "sha256": "21e9d5d83b981d71813c3e8c1ec33c851f5c4c96e16cff488b870c85c36321ef", "session_id": "unicore-portfolio"}
+{"schema": "UNICORE-OPERATIONAL-CONTEXT-REV-1", "at": "2026-11-17T11:31:46+00:00", "revision": 3, "sha256": "a0ca08e5a3a91577eaf1d0f962709024013a92ad141dcb67132b7b2e62f7dee7", "session_id": "unicore-portfolio"}

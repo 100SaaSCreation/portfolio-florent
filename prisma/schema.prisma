@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// Contenu éditable du portfolio (document unique).
+model SiteContent {
+  id        String   @id @default("main")
+  payload   Json
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+}
+
+/// Compte admin unique (hash bcrypt).
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

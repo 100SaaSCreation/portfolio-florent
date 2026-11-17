@@ -2,7 +2,7 @@
   "schema": "UNICORE-CONTINUITY-INTEGRITY-1",
   "contract": "CONTINUITY-MICRO-1.0",
   "module": "1.0.0",
-  "at": "2026-11-17T09:56:23+00:00",
+  "at": "2026-11-17T11:31:46+00:00",
   "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
   "status": "PASS",
   "checks": [
@@ -17,9 +17,8 @@
     },
     {
       "id": "product_state",
-      "status": "SKIP",
-      "reason": "no_product_state",
-      "skip_ne_pass": true
+      "status": "PASS",
+      "name": "vitrine"
     },
     {
       "id": "fabrication_state",
@@ -29,7 +28,7 @@
     {
       "id": "intervention",
       "status": "PASS",
-      "execution_state": "NOT_STARTED",
+      "execution_state": "COMPLETE",
       "p4": "CLOSED"
     },
     {
@@ -41,7 +40,7 @@
     {
       "id": "session_chain",
       "status": "PASS",
-      "count": 3
+      "count": 5
     }
   ],
   "skip_ne_pass": true

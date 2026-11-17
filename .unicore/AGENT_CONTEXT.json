@@ -1,7 +1,7 @@
 {
   "schema": "UNICORE-AGENT-CONTEXT-1",
   "version": "1.2.0",
-  "generated_at": "2026-11-17T10:17:53.010799+00:00",
+  "generated_at": "2026-11-17T15:19:15.172340+00:00",
   "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
   "engine": {
     "name": "UNICORE",
@@ -123,9 +123,10 @@
     "authorization": {
       "approver": "Florent Le Bot",
       "operations": [
-        "WRITE_LOCAL"
+        "WRITE_LOCAL",
+        "WRITE_SHARED"
       ],
-      "expires": "2026-11-17T17:56:11+00:00",
+      "expires": "2026-11-18T23:59:59+00:00",
       "authenticated": false
     },
     "execution_declaration": {
@@ -143,18 +144,11 @@
   "restitution_status": null,
   "journal_tail": [],
   "session_tip": {
-    "sha256": "0e94631f11005a69610b1d74b9d2d3b61a3587397b7c74e532cc87321900c8b6",
+    "sha256": "d76bf48c826200daf0acdd5dacfa0bae2069fa3631dff9d617501033ba477733",
     "session_id": "unicore-portfolio",
-    "at": "2026-11-17T10:14:23.442632+00:00"
+    "at": "2026-11-17T15:19:15.006904+00:00"
   },
   "session_tail": [
-    {
-      "at": "2026-11-17T09:54:52.464503+00:00",
-      "role": "agent",
-      "kind": "note",
-      "content": "fabrication portfolio PRO site_vitrine",
-      "sha256": "25ee69f0e44a75887e9d102485a4e92c4fc70efb45af6722e9356953be42376d"
-    },
     {
       "at": "2026-11-17T09:55:22.478841+00:00",
       "role": "agent",
@@ -175,6 +169,41 @@
       "kind": "note",
       "content": "portfolio code+tests verts; reprise fabrication qualite/preuves",
       "sha256": "0e94631f11005a69610b1d74b9d2d3b61a3587397b7c74e532cc87321900c8b6"
+    },
+    {
+      "at": "2026-11-17T10:38:12.479549+00:00",
+      "role": "agent",
+      "kind": "note",
+      "content": "Tour publication: SEO/RGPD puis WRITE_SHARED + fabricate-cloud-run --create-missing + push + snyk-connect",
+      "sha256": "524bf874b385efb946f7f45153b018e81bd4e4186649054d422a8e1dcadca8cf"
+    },
+    {
+      "at": "2026-11-17T11:36:27.757125+00:00",
+      "role": "agent",
+      "kind": "note",
+      "content": "NEED cible github_repo+[REDACTED] portfolio-florent ; rejoue fabricate-cloud-run --create-missing",
+      "sha256": "56720d2f7d4586438f4d6085f721f0269f53dd0f52dc5d37c557c0754ae3c668"
+    },
+    {
+      "at": "2026-11-17T13:24:46.132650+00:00",
+      "role": "agent",
+      "kind": "note",
+      "content": "Cible Vercel/URL: portfolio-florent-le-bot",
+      "sha256": "392a978a65fda66f1d9073a4ded705f79ca030321ed736440e6fcec0a4562610"
+    },
+    {
+      "at": "2026-11-17T15:08:21.308550+00:00",
+      "role": "agent",
+      "kind": "note",
+      "content": "Fix critical CSS chain + preconnect",
+      "sha256": "b971b55446f7bca359d88b5cd2baa93a7577e2000008997a50eb22d2b6f5fc4c"
+    },
+    {
+      "at": "2026-11-17T15:19:15.006904+00:00",
+      "role": "agent",
+      "kind": "note",
+      "content": "CMS portfolio: Prisma+Neon, auth admin, /admin, pages dynamiques",
+      "sha256": "d76bf48c826200daf0acdd5dacfa0bae2069fa3631dff9d617501033ba477733"
     }
   ],
   "rules_for_agent": [

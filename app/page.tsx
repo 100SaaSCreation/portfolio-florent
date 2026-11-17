@@ -5,8 +5,12 @@ import { Projects } from "@/components/projects";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Unicore } from "@/components/unicore";
+import { getPortfolioContent } from "@/lib/content";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const content = await getPortfolioContent();
   return (
     <>
       <a
@@ -15,15 +19,15 @@ export default function Home() {
       >
         Aller au contenu
       </a>
-      <SiteHeader />
+      <SiteHeader identity={content.identity} navigation={content.navigation} />
       <main id="contenu">
-        <Hero />
-        <Projects />
-        <Method />
-        <Unicore />
-        <Contact />
+        <Hero content={content} />
+        <Projects content={content} />
+        <Method content={content} />
+        <Unicore content={content} />
+        <Contact content={content} />
       </main>
-      <SiteFooter />
+      <SiteFooter identity={content.identity} />
     </>
   );
 }

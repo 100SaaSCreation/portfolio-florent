@@ -7,15 +7,20 @@ import { identity, navigation, projects } from "@/lib/profile";
 
 afterEach(cleanup);
 
+async function renderHome() {
+  const ui = await Home();
+  return render(ui);
+}
+
 describe("page d'accueil", () => {
-  it("affiche le titre principal et l'identité", () => {
-    render(<Home />);
+  it("affiche le titre principal et l'identité", async () => {
+    await renderHome();
     expect(screen.getByRole("heading", { level: 1 }).textContent).toContain("tenir en production");
     expect(screen.getAllByText(identity.name).length).toBeGreaterThan(0);
   });
 
-  it("présente chaque projet avec son titre et sa stack", () => {
-    render(<Home />);
+  it("présente chaque projet avec son titre et sa stack", async () => {
+    await renderHome();
     for (const project of projects) {
       const article = screen.getByRole("article", { name: project.name });
       expect(within(article).getByText(project.tagline)).toBeTruthy();
@@ -23,8 +28,8 @@ describe("page d'accueil", () => {
     }
   });
 
-  it("chaque ancre interne pointe vers une section existante", () => {
-    const { container } = render(<Home />);
+  it("chaque ancre interne pointe vers une section existante", async () => {
+    const { container } = await renderHome();
     const anchors = Array.from(container.querySelectorAll<HTMLAnchorElement>('a[href^="#"]'));
     expect(anchors.length).toBeGreaterThan(0);
     for (const anchor of anchors) {
@@ -37,8 +42,8 @@ describe("page d'accueil", () => {
     }
   });
 
-  it("le seul lien externe est le projet en production, ouvert de façon sûre", () => {
-    const { container } = render(<Home />);
+  it("le seul lien externe est le projet en production, ouvert de façon sûre", async () => {
+    const { container } = await renderHome();
     const external = Array.from(container.querySelectorAll<HTMLAnchorElement>('a[href^="http"]'));
     const live = projects.filter((p) => p.status === "live");
     expect(external.map((a) => a.href.replace(/\/$/, ""))).toEqual(live.map((p) => p.url));
@@ -48,8 +53,8 @@ describe("page d'accueil", () => {
     }
   });
 
-  it("propose un contact email fonctionnel", () => {
-    render(<Home />);
+  it("propose un contact email fonctionnel", async () => {
+    await renderHome();
     const mailLinks = screen
       .getAllByRole("link")
       .filter((link) => link.getAttribute("href")?.startsWith(`mailto:${identity.email}`));
@@ -83,8 +88,8 @@ describe("pages secondaires", () => {
     expect(screen.getByRole("link", { name: /Retour au portfolio/ }).getAttribute("href")).toBe("/");
   });
 
-  it("le pied de page expose mentions légales et confidentialité", () => {
-    render(<Home />);
+  it("le pied de page expose mentions légales et confidentialité", async () => {
+    await renderHome();
     expect(screen.getByRole("link", { name: "Mentions légales" }).getAttribute("href")).toBe("/mentions-legales");
     expect(screen.getByRole("link", { name: "Confidentialité" }).getAttribute("href")).toBe("/confidentialite");
   });

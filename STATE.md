@@ -3,18 +3,18 @@
 <!-- PRODUCT:START -->
 ## Mémoire produit (STATE_CONTEXT)
 - Nom : `portfolio-florent` — portfolio de Florent Le Bot (concepteur & développeur SaaS)
-- Stack : `site_vitrine` UNICORE — Next 16.4.5, React 19.3.1, Tailwind 4.3.3 (`@theme` CSS), Vitest 4.1.12
+- Stack : Next 16.4.5, React 19.3.1, Tailwind 4.3.3, Vitest 4.1.12, Prisma 7.10.1, Neon
 - Design : preset design_soft `signal` — Syne / Source Serif 4 / JetBrains Mono via next/font
 - Prod : https://portfolio-florent-le-bot.vercel.app
-- Projet Vercel : `portfolio-florent-le-bot` (remplace `portfolio-florent` / silk, nom déjà pris)
+- Admin : https://portfolio-florent-le-bot.vercel.app/admin
 - Repo : https://github.com/100SaaSCreation/portfolio-florent (public)
 - Mis à jour : 2026-11-17
 
 ### Architecture
-- `app/page.tsx` compose `components/` : site-header, hero, projects, method, unicore, contact, site-footer
-- Contenu : `lib/profile.ts` + `lib/site.ts` (URL canonique)
-- Routes : `/`, `/credits`, `/mentions-legales`, `/confidentialite`, `/robots.txt`, `/sitemap.xml`, `/_not-found`, `/icon.svg`
-- Aucune API, aucune base applicative, aucun secret. En-têtes sécurité Next.
+- Contenu éditable : table `SiteContent` (JSON) + `AdminUser` (bcrypt) ; API `/api/admin/*` ; UI `/admin`
+- Fallback : `lib/content-defaults.ts` si DB absente
+- Pages publiques : `getPortfolioContent()` → composants
+- Routes : `/`, `/admin`, `/admin/login`, légales, robots/sitemap
 
 ### Preuves
 - Local : lint 0 · tsc 0 · Vitest 16/16 · couverture lignes ~98 % · build 0 · Snyk 0 vuln · LH local ~90/100/100/100

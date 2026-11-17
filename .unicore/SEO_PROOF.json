@@ -1,0 +1,274 @@
+{
+  "schema": "UNICORE-SEO-PROOF-1",
+  "version": "1.1.0",
+  "contract": "SEO-CONTRACT-1.1",
+  "engine": {
+    "name": "UNICORE",
+    "version": "1.3.0"
+  },
+  "at": "2026-11-17T15:03:39+00:00",
+  "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
+  "base_url": "https://portfolio-florent-le-bot.vercel.app",
+  "profile": "MICRO_SOFT",
+  "status": "FAIL",
+  "score": {
+    "reliability_pct": 14.9,
+    "earned": 14,
+    "total": 94,
+    "blocking": [
+      "structural_seo_lib",
+      "structural_layout",
+      "tech_robots",
+      "tech_canonical",
+      "tech_jsonld",
+      "routes_metadata"
+    ],
+    "mandatory_fail": [
+      "structural_seo_lib",
+      "structural_layout",
+      "tech_robots",
+      "tech_canonical",
+      "tech_jsonld",
+      "routes_metadata"
+    ],
+    "skipped": [
+      "lighthouse_seo"
+    ],
+    "skip_never_counts_as_pass": true,
+    "grade": "D"
+  },
+  "layers": {
+    "structural": [
+      {
+        "id": "structural_seo_lib",
+        "status": "FAIL"
+      },
+      {
+        "id": "structural_layout",
+        "status": "FAIL"
+      }
+    ],
+    "routes": [
+      {
+        "id": "routes_metadata",
+        "status": "FAIL"
+      }
+    ],
+    "technical": [
+      {
+        "id": "tech_robots",
+        "status": "FAIL"
+      },
+      {
+        "id": "tech_sitemap",
+        "status": "PASS"
+      },
+      {
+        "id": "tech_canonical",
+        "status": "FAIL"
+      },
+      {
+        "id": "tech_jsonld",
+        "status": "FAIL"
+      }
+    ],
+    "lighthouse": [
+      {
+        "id": "lighthouse_seo",
+        "status": "SKIP"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "id": "structural_seo_lib",
+      "layer": "structural",
+      "status": "FAIL",
+      "anomalies": [
+        "MISSING_LIB_SEO"
+      ],
+      "detail": "MISSING"
+    },
+    {
+      "id": "structural_layout",
+      "layer": "structural",
+      "status": "FAIL",
+      "path": "app/layout.tsx",
+      "sha256": "871065b0fc82fd00e3ea03c4c9719438974c74dc604824c781a7e6f9921bcf9b",
+      "via_buildMetadata": false,
+      "anomalies": [
+        "JSONLD_NOT_WIRED"
+      ]
+    },
+    {
+      "id": "tech_robots",
+      "layer": "technical",
+      "status": "FAIL",
+      "path": "app/robots.ts",
+      "sha256": "529e4b3beb135b231382a1b135828622a01c5cf0312c453684cafb4506e5b8c6",
+      "anomalies": [
+        "PRIVATE_NOT_DISALLOWED:/app",
+        "PRIVATE_NOT_DISALLOWED:/api"
+      ]
+    },
+    {
+      "id": "tech_sitemap",
+      "layer": "technical",
+      "status": "PASS",
+      "path": "app/sitemap.ts",
+      "sha256": "582e83a9e987eb1c0888ab7a40f28cc38c0de45e9be468924c288dff8577bf6b",
+      "urls_found": 0,
+      "anomalies": []
+    },
+    {
+      "id": "tech_canonical",
+      "layer": "technical",
+      "status": "FAIL",
+      "files": {
+        "app/layout.tsx": "871065b0fc82fd00e3ea03c4c9719438974c74dc604824c781a7e6f9921bcf9b"
+      },
+      "anomalies": [
+        "METADATABASE_MISSING",
+        "CANONICAL_MISSING"
+      ]
+    },
+    {
+      "id": "tech_jsonld",
+      "layer": "technical",
+      "status": "FAIL",
+      "anomalies": [
+        "MISSING_LIB_SEO"
+      ]
+    },
+    {
+      "id": "routes_metadata",
+      "layer": "routes",
+      "status": "FAIL",
+      "public_routes": 4,
+      "routes": [
+        {
+          "route": "/confidentialite",
+          "path": "app/confidentialite/page.tsx",
+          "private": false,
+          "local_metadata": true,
+          "inherits_layout": false,
+          "status": "PASS"
+        },
+        {
+          "route": "/credits",
+          "path": "app/credits/page.tsx",
+          "private": false,
+          "local_metadata": true,
+          "inherits_layout": false,
+          "status": "PASS"
+        },
+        {
+          "route": "/mentions-legales",
+          "path": "app/mentions-legales/page.tsx",
+          "private": false,
+          "local_metadata": true,
+          "inherits_layout": false,
+          "status": "PASS"
+        },
+        {
+          "route": "/",
+          "path": "app/page.tsx",
+          "private": false,
+          "local_metadata": false,
+          "inherits_layout": false,
+          "status": "FAIL"
+        }
+      ],
+      "anomalies": [
+        "ROUTE_NO_METADATA:/"
+      ]
+    },
+    {
+      "id": "lighthouse_seo",
+      "layer": "lighthouse",
+      "status": "SKIP",
+      "detail": "NO_LH_SEO_ARTIFACT",
+      "note": "LH SEO score is complementary technical signal only — not content quality.",
+      "anomalies": []
+    }
+  ],
+  "files_verified": [
+    {
+      "path": "app/layout.tsx",
+      "sha256": "871065b0fc82fd00e3ea03c4c9719438974c74dc604824c781a7e6f9921bcf9b",
+      "check": "structural_layout"
+    },
+    {
+      "path": "app/robots.ts",
+      "sha256": "529e4b3beb135b231382a1b135828622a01c5cf0312c453684cafb4506e5b8c6",
+      "check": "tech_robots"
+    },
+    {
+      "path": "app/sitemap.ts",
+      "sha256": "582e83a9e987eb1c0888ab7a40f28cc38c0de45e9be468924c288dff8577bf6b",
+      "check": "tech_sitemap"
+    }
+  ],
+  "anomalies": [
+    {
+      "check": "structural_seo_lib",
+      "layer": "structural",
+      "code": "MISSING_LIB_SEO"
+    },
+    {
+      "check": "structural_layout",
+      "layer": "structural",
+      "code": "JSONLD_NOT_WIRED"
+    },
+    {
+      "check": "tech_robots",
+      "layer": "technical",
+      "code": "PRIVATE_NOT_DISALLOWED:/app"
+    },
+    {
+      "check": "tech_robots",
+      "layer": "technical",
+      "code": "PRIVATE_NOT_DISALLOWED:/api"
+    },
+    {
+      "check": "tech_canonical",
+      "layer": "technical",
+      "code": "METADATABASE_MISSING"
+    },
+    {
+      "check": "tech_canonical",
+      "layer": "technical",
+      "code": "CANONICAL_MISSING"
+    },
+    {
+      "check": "tech_jsonld",
+      "layer": "technical",
+      "code": "MISSING_LIB_SEO"
+    },
+    {
+      "check": "routes_metadata",
+      "layer": "routes",
+      "code": "ROUTE_NO_METADATA:/"
+    }
+  ],
+  "unverifiable": [
+    "Content relevance / keyword intent (not technical SEO)",
+    "Search competition / backlinks / popularity",
+    "Live Google indexing status (no GSC)",
+    "Lighthouse SEO category score (artifact absent)"
+  ],
+  "out_of_scope": [
+    "GSC",
+    "crawl",
+    "Ahrefs",
+    "LHCI",
+    "i18n_seo_cms",
+    "content_quality"
+  ],
+  "rules": {
+    "skip_never_counts_as_pass": true,
+    "mandatory_artifacts_fail_if_absent": true,
+    "lighthouse_is_complementary_only": true
+  },
+  "sha256": "de8268572fa3e3e1abb69492a8c410577d5f7eaeb39a9613ac3ebb41359f209d"
+}

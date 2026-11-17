@@ -1,0 +1,47 @@
+{
+  "schema": "UNICORE-SNYK-CONNECT-OPEN-1",
+  "contract": "SNYK-CONNECT-WEB-1.0",
+  "at": "2026-11-17T13:07:05+00:00",
+  "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
+  "github": {
+    "owner": "100SaaSCreation",
+    "repo": "portfolio-florent"
+  },
+  "snyk_org": "100saascreation",
+  "urls": {
+    "login": "https://app.snyk.io/login",
+    "add_project": "https://app.snyk.io/org/100saascreation/add/github/github.com/100SaaSCreation/portfolio-florent",
+    "org_projects": "https://app.snyk.io/org/100saascreation/projects",
+    "github_integration": "https://app.snyk.io/org/100saascreation/manage/integrations/github"
+  },
+  "opened": [
+    {
+      "url": "https://app.snyk.io/login",
+      "opened": true,
+      "error": null,
+      "dry_run": false
+    },
+    {
+      "url": "https://app.snyk.io/org/100saascreation/add/github/github.com/100SaaSCreation/portfolio-florent",
+      "opened": true,
+      "error": null,
+      "dry_run": false
+    },
+    {
+      "url": "https://app.snyk.io/org/100saascreation/manage/integrations/github",
+      "opened": true,
+      "error": null,
+      "dry_run": false
+    }
+  ],
+  "auth_cli": {
+    "status": "STARTED",
+    "cmd": "snyk.cmd auth"
+  },
+  "rules": {
+    "no_secret_in_chat": true,
+    "human_click_required": true,
+    "ci_without_token": "SKIP_debt_true_not_PASS"
+  },
+  "agent_instruction": "Après push GitHub : exécuter snyk-connect-open ; attendre le clic navigateur ; reprendre avec snyk test + snyk monitor. Ne jamais demander SNYK_TOKEN dans le chat."
+}

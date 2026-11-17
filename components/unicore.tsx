@@ -1,9 +1,10 @@
-import { unicorePillars } from "@/lib/profile";
 import { SectionHeading } from "@/components/section-heading";
+import { defaultPortfolioContent } from "@/lib/content-defaults";
+import type { PortfolioContent } from "@/lib/content-types";
 
 const gates = ["P0", "P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8"] as const;
 
-export function Unicore() {
+export function Unicore({ content = defaultPortfolioContent }: { content?: PortfolioContent }) {
   return (
     <section id="unicore" className="relative scroll-mt-24 overflow-hidden bg-night text-[#e7e9ee]">
       <div
@@ -13,9 +14,9 @@ export function Unicore() {
       <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <SectionHeading
           tone="dark"
-          kicker="UNICORE"
-          title="Mon usine logicielle, gouvernée de bout en bout."
-          lead="J'ai écrit UNICORE pour fabriquer et livrer des SaaS sans raccourci : chaque intervention passe des portes, chaque commande laisse une trace, et rien n'est déclaré terminé sans preuve."
+          kicker={content.unicoreIntro.eyebrow}
+          title={content.unicoreIntro.title}
+          lead={content.unicoreIntro.lead}
         />
         <ol aria-label="Portes de gouvernance" className="mt-12 flex items-center overflow-x-auto pb-2">
           {gates.map((gate, index) => (
@@ -30,7 +31,7 @@ export function Unicore() {
           ))}
         </ol>
         <ul className="mt-14 grid gap-5 md:grid-cols-2">
-          {unicorePillars.map((pillar) => (
+          {content.unicorePillars.map((pillar) => (
             <li
               key={pillar.title}
               className="rounded-2xl border border-night-line bg-night-2/70 p-7 transition-colors hover:border-ember/50"

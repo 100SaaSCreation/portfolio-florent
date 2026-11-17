@@ -1,0 +1,119 @@
+{
+  "schema": "UNICORE-SITE-AUDIT-1",
+  "at": "2026-11-17T15:04:06+00:00",
+  "url": "https://portfolio-florent-le-bot.vercel.app",
+  "repo": "https://github.com/100SaaSCreation/portfolio-florent",
+  "verdict": "PASS_WITH_GAPS",
+  "score_global": 88,
+  "axes": {
+    "availability": {
+      "status": "PASS",
+      "detail": "/, /credits, /mentions-legales, /confidentialite, robots, sitemap, icon 200; 404 OK"
+    },
+    "lighthouse": {
+      "status": "PASS",
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best_practices": 100,
+        "seo": 100
+      },
+      "console_errors": 0,
+      "evidence": ".unicore/audit/lighthouse-audit-complet.json"
+    },
+    "security_headers": {
+      "status": "PASS_WITH_GAPS",
+      "present": [
+        "HSTS",
+        "X-Frame-Options DENY",
+        "nosniff",
+        "Referrer-Policy",
+        "Permissions-Policy",
+        "no X-Powered-By"
+      ],
+      "missing": [
+        "Content-Security-Policy"
+      ]
+    },
+    "rgpd": {
+      "status": "PASS",
+      "pages": [
+        "/mentions-legales",
+        "/confidentialite"
+      ],
+      "cookies_trackers": "none_declared_and_none_observed_in_audit"
+    },
+    "seo_lighthouse": {
+      "status": "PASS",
+      "score": 100
+    },
+    "seo_unicore": {
+      "status": "FAIL",
+      "exit_code": 2,
+      "gaps": [
+        "CANONICAL_MISSING",
+        "MISSING_LIB_SEO",
+        "ROUTE_NO_METADATA:/"
+      ],
+      "evidence": ".unicore/SEO_PROOF.json",
+      "note": "LH SEO 100 != UNICORE seo-audit PASS"
+    },
+    "quality_local": {
+      "status": "PASS",
+      "tests": "16/16",
+      "lint": 0
+    },
+    "snyk": {
+      "status": "PASS",
+      "vulns": 0,
+      "note": "quota mensuel 200 tests atteint (avertissement)"
+    },
+    "ci_github": {
+      "status": "SKIP",
+      "debt": true
+    },
+    "content": {
+      "status": "PASS",
+      "live_project_lienmuet2": 200,
+      "private_projects_no_fake_urls": true
+    },
+    "ux_visual": {
+      "status": "PASS",
+      "desktop_hero_ok": true,
+      "brand_FLB_present": true,
+      "nav_ctas_ok": true
+    }
+  },
+  "gaps_prioritaires": [
+    {
+      "id": "SEO_CANONICAL",
+      "severity": "M",
+      "fix": "ajouter metadataBase + alternates.canonical"
+    },
+    {
+      "id": "SEO_JSONLD",
+      "severity": "M",
+      "fix": "Person/WebSite JSON-LD"
+    },
+    {
+      "id": "CSP",
+      "severity": "M",
+      "fix": "Content-Security-Policy"
+    },
+    {
+      "id": "OG_IMAGE",
+      "severity": "B",
+      "fix": "image Open Graph"
+    },
+    {
+      "id": "CI",
+      "severity": "B",
+      "fix": "workflow GitHub Actions (SKIP actuel)"
+    },
+    {
+      "id": "OLD_PROJECT",
+      "severity": "info",
+      "fix": "projet Vercel portfolio-florent (silk) encore existant ; domaine portfolio-florent.vercel.app = vieux Vite"
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { identity } from "@/lib/profile";
+import { defaultPortfolioContent } from "@/lib/content-defaults";
+import type { Identity } from "@/lib/content-types";
 
-export function SiteFooter() {
+export function SiteFooter({ identity = defaultPortfolioContent.identity }: { identity?: Identity }) {
   return (
     <footer className="border-t border-line">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 font-code text-[12px] text-muted md:flex-row md:items-center md:justify-between">

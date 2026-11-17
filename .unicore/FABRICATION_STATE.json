@@ -331,8 +331,8 @@
     "reverified_at": "2026-11-17T10:17:59+00:00"
   },
   "anomalies": [],
-  "updated_at": "2026-11-17T10:18:02+00:00",
-  "sha256": "64471e488f46a999b6040974891b2f83adce62edc7fbee197d84089e3edf4516",
+  "updated_at": "2026-11-17T13:27:17+00:00",
+  "sha256": "cb82e37dc9212ed5aaaa57d70e5e9125fed0ac6b50ea1362e909f6dd747257c6",
   "product_spec": {
     "schema": "UNICORE-PRODUCT-SPEC-1",
     "version": "1.1.0",
@@ -386,5 +386,60 @@
     "max_attempts": 2,
     "skip_ne_pass": true,
     "last_diagnosis": null
+  },
+  "ucdo_layers": {
+    "C7_cloud": {
+      "status": "PASS",
+      "evidence_level": "EXTERNAL_CONNECTION_VERIFIED",
+      "adapters": {
+        "github": "PASS",
+        "neon": "PASS",
+        "vercel": "PASS"
+      }
+    },
+    "C8_runtime": {
+      "status": "SKIP",
+      "skip_ne_pass": true,
+      "note": "C8_runtime requires RUNTIME_TESTED",
+      "evidence_level": "EXTERNAL_CONNECTION_VERIFIED",
+      "adapters": {
+        "vercel": "PASS"
+      }
+    },
+    "C9_payments_test": {
+      "status": "SKIP",
+      "note": "stripe test: not run",
+      "skip_ne_pass": true
+    },
+    "C10_ci_security": {
+      "status": "PASS",
+      "evidence_level": "RUNTIME_TESTED",
+      "adapters": {
+        "github": "PASS",
+        "snyk": "PASS"
+      }
+    }
+  },
+  "ucdo": {
+    "module_version": "1.1.0",
+    "at": "2026-11-17T13:27:17+00:00",
+    "results": {
+      "github": {
+        "status": "PASS",
+        "evidence_level": "EXTERNAL_CONNECTION_VERIFIED"
+      },
+      "neon": {
+        "status": "PASS",
+        "evidence_level": "EXTERNAL_CONNECTION_VERIFIED"
+      },
+      "vercel": {
+        "status": "PASS",
+        "evidence_level": "EXTERNAL_CONNECTION_VERIFIED"
+      },
+      "snyk": {
+        "status": "PASS",
+        "evidence_level": "RUNTIME_TESTED"
+      }
+    }
   }
 }

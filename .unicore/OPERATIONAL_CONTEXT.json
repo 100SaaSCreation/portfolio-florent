@@ -2,48 +2,89 @@
   "schema": "UNICORE-OPERATIONAL-CONTEXT-1",
   "version": "1.0.0",
   "contract": "UCOL-1.0",
-  "revision": 2,
-  "at": "2026-11-17T09:58:42+00:00",
+  "revision": 3,
+  "at": "2026-11-17T11:31:46+00:00",
   "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
   "session_id": "unicore-portfolio",
   "intent": {
-    "user_goal": "fabrication portfolio PRO site_vitrine",
+    "user_goal": "unicore-portfolio: portfolio PRO florent-le-bot (site_vitrine)",
     "normalized_need_ref": null,
     "assertions": [],
-    "out_of_scope": []
+    "out_of_scope": [
+      "auth; billing; base de donnees; secrets chat; vercel deploy CLI; mutation cloud sans WRITE_SHARED"
+    ]
   },
   "asgs": {
-    "objective": null,
-    "gates": {},
-    "authorization_ops": [],
-    "authorization_expires": null,
+    "objective": "unicore-portfolio: portfolio PRO florent-le-bot (site_vitrine)",
+    "gates": {
+      "P0": "CLOSED",
+      "P1": "CLOSED",
+      "P2": "CLOSED",
+      "P3": "CLOSED",
+      "P4": "CLOSED",
+      "P5": "CLOSED",
+      "P6": "CLOSED",
+      "P7": "OPEN",
+      "P8": "OPEN"
+    },
+    "authorization_ops": [
+      "WRITE_LOCAL",
+      "WRITE_SHARED"
+    ],
+    "authorization_expires": "2026-11-18T23:59:59+00:00",
     "authorization_authenticated": false,
     "certification_status": null,
-    "execution_state": null,
-    "risk_class": null,
+    "execution_state": "COMPLETE",
+    "risk_class": "MODERATE",
     "note": "read_only_mirror — UCOL does not grant authorization"
   },
   "product": {
-    "product_state_sha256": null,
-    "stack_id": null,
+    "product_state_sha256": "3ecd642bf48dfb0edf6e38b4cbe3a12743266009cfdb78b67a97e473f349fde0",
+    "stack_id": {
+      "stack": "site_vitrine",
+      "extensions": []
+    },
     "quality_profile": null,
-    "name": null
+    "name": "vitrine"
   },
   "fabrication": {
     "mission_id": "fab_28fe5a14a6a7",
-    "phase": "RUNNING",
+    "phase": "BLOCKED",
     "checkpoint": null
   },
   "integrations": {
     "ucdo_levels": {}
   },
   "quality": {
-    "last_loop": null,
-    "debts": []
+    "last_loop": {
+      "schema": "UNICORE-QUALITY-LOOP-1",
+      "at": "2026-11-17T10:18:02+00:00",
+      "status": "PASS",
+      "attempts": [
+        {
+          "attempt": 1,
+          "steps": [
+            {
+              "cmd": "pnpm test",
+              "exit_code": 0,
+              "ok": true,
+              "preview": "\n> portfolio-florent@0.1.0 test C:\\dev\\moteur\\projets\\portfolio-florent\n> vitest run\n\n\n RUN  v3.2.7 C:/dev/moteur/projets/portfolio-florent\n\n ✓ tests/copy-email-button.test.tsx (2 tests) 109ms\n ✓ tests/home.test.tsx (9 tests) 276ms\n\n Test Files  2 passed (2)\n      Tests  11 passed (11)\n   Start at  11:18:00\n   Duration  2.03s (transform 158ms, setup 0ms, collect 759ms, tests 385ms, environment 1.53s, prepare 313ms)\n\n"
+            }
+          ],
+          "ok": true
+        }
+      ],
+      "max_attempts": 2,
+      "skip_ne_pass": true,
+      "last_diagnosis": null
+    },
+    "debts": [
+      "go_live_skip:github_pipeline"
+    ]
   },
   "proofs": {
     "product_proof": null,
-    "go_live_terminal": null,
+    "go_live_terminal": "UNICORE-GO-LIVE-TERMINAL-PROOF-1",
     "capability": []
   },
   "handoff": {
@@ -54,5 +95,5 @@
   "decisions_tip_sha256": null,
   "next_action": "HUMAN_REQUIRED",
   "blockers": [],
-  "sha256": "444d891c2e958f0dc3ce4775f7d8c7443ebacc7993f060d15f0f81fd07ce5051"
+  "sha256": "a0ca08e5a3a91577eaf1d0f962709024013a92ad141dcb67132b7b2e62f7dee7"
 }

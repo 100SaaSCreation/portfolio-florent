@@ -1,7 +1,7 @@
 {
   "schema": "UNICORE-COMPLIANCE-PREFLIGHT-1",
   "contract": "AGENT_COMPLIANCE_CONTRACT.md",
-  "at": "2026-11-17T10:35:53+00:00",
+  "at": "2026-11-17T13:08:50+00:00",
   "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
   "status": "PASS",
   "checks": [
@@ -12,7 +12,7 @@
     {
       "id": "prompt_change_log",
       "status": "PASS",
-      "at": "2026-11-17T09:56:11+00:00"
+      "at": "2026-11-17T10:38:12+00:00"
     },
     {
       "id": "failed_command_log",
@@ -22,7 +22,7 @@
     {
       "id": "terminal_hygiene",
       "status": "PASS",
-      "count": 14,
+      "count": 17,
       "path": "C:\\dev\\moteur\\projets\\portfolio-florent\\.unicore\\TERMINAL_HYGIENE.jsonl"
     },
     {

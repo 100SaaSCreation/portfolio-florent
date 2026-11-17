@@ -1,5 +1,6 @@
-import { projects, type Project } from "@/lib/profile";
 import { SectionHeading } from "@/components/section-heading";
+import { defaultPortfolioContent } from "@/lib/content-defaults";
+import type { PortfolioContent, Project } from "@/lib/content-types";
 
 function StatusBadge({ project, tone }: { project: Project; tone: "light" | "dark" }) {
   if (project.status === "live") {
@@ -129,15 +130,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   );
 }
 
-export function Projects() {
-  const [featured, ...others] = projects;
+export function Projects({ content = defaultPortfolioContent }: { content?: PortfolioContent }) {
+  const [featured, ...others] = content.projects;
   return (
     <section id="projets" className="scroll-mt-24">
       <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <SectionHeading
-          kicker="Projets"
-          title="Des applications réelles, pas des maquettes."
-          lead="Quatre SaaS conçus et développés de bout en bout : authentification, paiement, internationalisation, données. Les dépôts sont privés ; une démonstration est possible sur demande."
+          kicker={content.projectsIntro.eyebrow}
+          title={content.projectsIntro.title}
+          lead={content.projectsIntro.lead}
         />
         <div className="mt-14 space-y-6">
           <FeaturedProject project={featured} />

@@ -2,14 +2,14 @@
   "schema": "UNICORE-UCOL-INTEGRITY-1",
   "contract": "UCOL-1.0",
   "module": "1.0.0",
-  "at": "2026-11-17T09:56:23+00:00",
+  "at": "2026-11-17T11:31:46+00:00",
   "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
   "status": "PASS",
   "checks": [
     {
       "id": "operational_context",
       "status": "PASS",
-      "revision": 2
+      "revision": 3
     },
     {
       "id": "no_auth_grant",
