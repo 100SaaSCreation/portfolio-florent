@@ -8,7 +8,13 @@ export function SiteFooter() {
         <p>
           © {new Date().getFullYear()} {identity.name} — {identity.role}
         </p>
-        <nav aria-label="Pied de page" className="flex gap-6">
+        <nav aria-label="Pied de page" className="flex flex-wrap gap-x-6 gap-y-2">
+          <Link href="/mentions-legales" className="hover:text-ink">
+            Mentions légales
+          </Link>
+          <Link href="/confidentialite" className="hover:text-ink">
+            Confidentialité
+          </Link>
           <Link href="/credits" className="hover:text-ink">
             Crédits
           </Link>

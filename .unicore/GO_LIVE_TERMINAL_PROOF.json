@@ -1,0 +1,50 @@
+{
+  "schema": "UNICORE-GO-LIVE-TERMINAL-PROOF-1",
+  "at": "2026-11-17T10:35:53+00:00",
+  "commands": {
+    "test": {
+      "status": "PASS",
+      "exit_code": 0,
+      "cmd": "pnpm test",
+      "tests": "13/13"
+    },
+    "build": {
+      "status": "PASS",
+      "exit_code": 0,
+      "cmd": "pnpm build"
+    },
+    "coverage": {
+      "status": "PASS",
+      "exit_code": 0,
+      "lines_pct": 98.38,
+      "cmd": "pnpm test:coverage"
+    },
+    "snyk": {
+      "status": "PASS",
+      "exit_code": 0,
+      "cmd": "snyk test",
+      "evidence": ".unicore/audit/snyk.json",
+      "note": "92 deps, 0 vuln ; quota mensuel 200 tests atteint (avertissement)"
+    },
+    "lh_soft": {
+      "status": "PASS",
+      "exit_code": 0,
+      "cmd": "lighthouse http://localhost:3107 (next start, build prod)",
+      "evidence": ".unicore/audit/lighthouse.json",
+      "scores": {
+        "performance": 90,
+        "accessibility": 100,
+        "best_practices": 100,
+        "seo": 100
+      },
+      "note": "URL locale prouvee, pas de preview publique"
+    },
+    "github_pipeline": {
+      "status": "SKIP",
+      "exit_code": null,
+      "cmd": "github-pipeline-prove",
+      "debt": true,
+      "reason": "depot GitHub non cree : publication WRITE_SHARED en attente d'accord"
+    }
+  }
+}

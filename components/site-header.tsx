@@ -4,11 +4,14 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line/80 bg-canvas/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-3.5">
-        <a href="#top" className="group flex items-center gap-2.5" aria-label={`${identity.name}, retour en haut`}>
-          <span className="grid size-9 place-items-center rounded-lg bg-ink font-code text-[11px] font-semibold tracking-wider text-ember transition-transform group-hover:-rotate-6">
+        <a href="#top" className="group flex items-center gap-2.5">
+          <span
+            aria-hidden="true"
+            className="grid size-9 place-items-center rounded-lg bg-ink font-code text-[11px] font-semibold tracking-wider text-ember transition-transform group-hover:-rotate-6">
             {identity.initials}
           </span>
           <span className="font-heading text-[1.05rem] font-bold tracking-tight whitespace-nowrap">{identity.name}</span>
+          <span className="sr-only">, retour en haut</span>
         </a>
         <nav aria-label="Sections principales" className="hidden items-center gap-7 md:flex">
           {navigation.map((item) => (

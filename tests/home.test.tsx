@@ -82,4 +82,26 @@ describe("pages secondaires", () => {
     render(<CreditsPage />);
     expect(screen.getByRole("link", { name: /Retour au portfolio/ }).getAttribute("href")).toBe("/");
   });
+
+  it("le pied de page expose mentions légales et confidentialité", () => {
+    render(<Home />);
+    expect(screen.getByRole("link", { name: "Mentions légales" }).getAttribute("href")).toBe("/mentions-legales");
+    expect(screen.getByRole("link", { name: "Confidentialité" }).getAttribute("href")).toBe("/confidentialite");
+  });
+});
+
+describe("pages légales", () => {
+  it("mentions légales citent l'éditeur et Vercel", async () => {
+    const { default: Mentions } = await import("@/app/mentions-legales/page");
+    render(<Mentions />);
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/Mentions légales/);
+    expect(screen.getByText(/Vercel Inc/)).toBeTruthy();
+  });
+
+  it("confidentialité affirme l'absence de cookies et de traceurs", async () => {
+    const { default: Confidentialite } = await import("@/app/confidentialite/page");
+    render(<Confidentialite />);
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/confidentialité/i);
+    expect(screen.getByText(/cookie de suivi/i)).toBeTruthy();
+  });
 });
