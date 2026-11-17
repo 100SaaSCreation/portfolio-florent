@@ -1,0 +1,61 @@
+{
+  "schema": "UNICORE-PAGESPEED-ONLINE-1",
+  "at": "2026-11-17T16:10:50+00:00",
+  "status": "FAIL",
+  "debt": false,
+  "url": "https://portfolio-florent-le-bot.vercel.app/",
+  "online": true,
+  "source": "pagespeed_insights",
+  "provider": "https://pagespeed.web.dev",
+  "api_key_used": false,
+  "observation": "browser_pagespeed_web_dev",
+  "analysis_url": "https://pagespeed.web.dev/analysis/https-portfolio-florent-le-bot-vercel-app/lqf98xqbox",
+  "strategies": [
+    {
+      "strategy": "mobile",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 92
+      },
+      "failed_seo_audits": [
+        {
+          "id": "robots-txt",
+          "title": "Le fichier robots.txt n'est pas valide 1 erreur detectee"
+        }
+      ]
+    },
+    {
+      "strategy": "desktop",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 92
+      },
+      "failed_seo_audits": [
+        {
+          "id": "robots-txt",
+          "title": "Le fichier robots.txt n'est pas valide 1 erreur detectee"
+        }
+      ]
+    }
+  ],
+  "scores": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 92
+  },
+  "thresholds": {
+    "performance": 90,
+    "accessibility": 90,
+    "best-practices": 90,
+    "seo": 90
+  },
+  "below_threshold": {},
+  "root_cause": "NEXT_PUBLIC_SITE_URL env Vercel contient CR/LF → Sitemap URL coupee dans robots.txt et loc sitemap",
+  "fix_pending_deploy": "lib/site.ts normalizeSiteUrl(trim) + redeploy git push",
+  "note": "Preuve Google PSI en ligne — FAIL SEO robots (pas un PASS local)"
+}
