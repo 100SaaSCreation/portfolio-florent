@@ -1,0 +1,22 @@
+{
+  "schema": "UNICORE-QUALITY-LOOP-1",
+  "at": "2026-11-17T10:18:02+00:00",
+  "status": "PASS",
+  "attempts": [
+    {
+      "attempt": 1,
+      "steps": [
+        {
+          "cmd": "pnpm test",
+          "exit_code": 0,
+          "ok": true,
+          "preview": "\n> portfolio-florent@0.1.0 test C:\\dev\\moteur\\projets\\portfolio-florent\n> vitest run\n\n\n RUN  v3.2.7 C:/dev/moteur/projets/portfolio-florent\n\n ✓ tests/copy-email-button.test.tsx (2 tests) 109ms\n ✓ tests/home.test.tsx (9 tests) 276ms\n\n Test Files  2 passed (2)\n      Tests  11 passed (11)\n   Start at  11:18:00\n   Duration  2.03s (transform 158ms, setup 0ms, collect 759ms, tests 385ms, environment 1.53s, prepare 313ms)\n\n"
+        }
+      ],
+      "ok": true
+    }
+  ],
+  "max_attempts": 2,
+  "skip_ne_pass": true,
+  "last_diagnosis": null
+}

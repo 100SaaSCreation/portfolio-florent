@@ -1,0 +1,18 @@
+{
+  "schema": "UNICORE-MODULE-RESULT-1",
+  "contract": "UCOL-1.0",
+  "module": "HANDOFF",
+  "at": "2026-11-17T09:58:42+00:00",
+  "context_revision_read": 2,
+  "status": "PARTIAL",
+  "debt": true,
+  "outputs": {
+    "claim_saas_pro_sellable": false,
+    "commercial_ready": false
+  },
+  "proofs": [],
+  "errors": [],
+  "suggested_next": "HUMAN_REQUIRED",
+  "skip_ne_pass": false,
+  "sha256": "7f9764e8232af3a8d9ff15b7893500565f1eb58b5867398df86411a4cdd7bd72"
+}

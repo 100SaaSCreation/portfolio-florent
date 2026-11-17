@@ -1,0 +1,11 @@
+{
+  "schema": "UNICORE-AGENT-PROVE-1",
+  "version": "1.2.0",
+  "at": "2026-11-17T10:17:53.023299+00:00",
+  "session_id": "unicore-portfolio",
+  "context_sha256": "a6b1ccd02cdc4c2a85756d80feb9ba283f269a7894ec4e168377e71c4fb75f22",
+  "intervention_sha256": "f28fcf643952526c7985883a35cb1b59af12e4b4bec8b67f0c55c48481e7401e",
+  "session_tip_sha256": "0e94631f11005a69610b1d74b9d2d3b61a3587397b7c74e532cc87321900c8b6",
+  "mission_aligned": true,
+  "note": ""
+}

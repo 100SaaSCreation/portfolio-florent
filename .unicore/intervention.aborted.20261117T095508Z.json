@@ -1,0 +1,84 @@
+{
+  "engine": "UNICORE",
+  "engine_version": "1.3.0",
+  "asgs": {
+    "file": "ASGS_Adaptive_Systemic_Governance_System.txt",
+    "sha256": "56807763f10b0cf0828fbcbdab503ad205eb592db8f8e5bc79263624cd5e4a00"
+  },
+  "created_at": "2026-11-17T09:55:08+00:00",
+  "footprint": "LITE",
+  "objective": "Livrer un site vitrine professionnel",
+  "perimeter": "site_vitrine généré sous UNICORE",
+  "out_of_scope": "auth SaaS ; billing ; packs fermés",
+  "discovery": {
+    "status": "COMPLETE",
+    "items": [
+      {
+        "file": "N/A — aucun manifeste",
+        "ecosystem": "N/A",
+        "status": "N/A"
+      }
+    ],
+    "conflicts": [],
+    "commands": [],
+    "verify_command": null
+  },
+  "architecture": {
+    "status": "CONFIRMED",
+    "profile": "ASGS-ARCH-DEFAULT",
+    "answers": {
+      "boundaries": "Application générée sous ASGS / UNICORE",
+      "modules": "scaffold catalogue STACKS",
+      "dependency_direction": "app → libs pinnées",
+      "data_owners": "N/A — à préciser avant production",
+      "public_contracts": "parcours MICRO documenté dans SAAS_CONTRACT / STACK_PROOF",
+      "invariants": "soft secrets ; pas de modules industriels par défaut",
+      "side_effects": "écriture locale du projet",
+      "out_of_scope": "auth SaaS ; billing ; packs fermés"
+    }
+  },
+  "risk": {
+    "dimensions": {
+      "T": 1,
+      "F": 2,
+      "D": 1,
+      "S": 2,
+      "A": 1,
+      "I": 1,
+      "U": 1
+    },
+    "floors": [],
+    "restore_plan": "git restore / rollback hold",
+    "B": 28.0,
+    "class": "MODERATE",
+    "mode": "STANDARD",
+    "confidence": "HIGH",
+    "provisional": false,
+    "assessed_at": "2026-11-17T09:55:08+00:00",
+    "interactions": []
+  },
+  "authorization": null,
+  "verification": null,
+  "audit": null,
+  "execution_state": "NOT_STARTED",
+  "gates": {
+    "P0": "CLOSED",
+    "P1": "CLOSED",
+    "P2": "CLOSED",
+    "P3": "CLOSED",
+    "P4": "OPEN",
+    "P5": "OPEN",
+    "P6": "OPEN",
+    "P7": "OPEN",
+    "P8": "OPEN"
+  },
+  "limits": [],
+  "agent_context": {
+    "schema": "UNICORE-AGENT-CONTEXT-1",
+    "written": {
+      "json": "C:\\dev\\moteur\\projets\\portfolio-florent\\.unicore\\AGENT_CONTEXT.json",
+      "md": "C:\\dev\\moteur\\projets\\portfolio-florent\\.unicore\\AGENT_CONTEXT.md"
+    },
+    "at": "2026-11-17T09:55:08+00:00"
+  }
+}

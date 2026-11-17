@@ -1,0 +1,37 @@
+{
+  "selection": {
+    "stack": "site_vitrine",
+    "extensions": [],
+    "reason": "Sélection déterministe à partir du catalogue vérifié.",
+    "factory_ok": true,
+    "governance_ok": true,
+    "delivery": null,
+    "catalog_ok": true
+  },
+  "composed": {
+    "stack": "site_vitrine",
+    "extensions": [],
+    "engines": {
+      "node": ">=22.12.0",
+      "packageManager": "pnpm@9"
+    },
+    "proof": {
+      "blocking": [
+        "pnpm lint",
+        "pnpm test",
+        "pnpm build"
+      ],
+      "notes": [
+        "Pas d'auth ni paiement dans la base vitrine."
+      ]
+    },
+    "runtime": {}
+  },
+  "commercial_ready": false,
+  "micro_saas": false,
+  "quality_profile": null,
+  "quality_standard": "STANDARD_QUALITE_SAAS_PRO.md",
+  "quality_standard_version": "3.1",
+  "commercial_live": false,
+  "commercial_ready_means": "Pack hors contrat commercial saas_web."
+}

@@ -1,0 +1,390 @@
+{
+  "schema": "UNICORE-FABRICATION-CONTINUITY-1",
+  "mission_id": "fab_28fe5a14a6a7",
+  "engine": "UNICORE",
+  "engine_version": "1.4.0",
+  "contract_version": "MICRO-1.2",
+  "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
+  "status": "BLOCKED",
+  "current_state": "QUALITY_LOOP",
+  "current_task": "FAB_CORE_001",
+  "last_committed_checkpoint": "cp_20261117T101802Z_7a007f",
+  "context_version": 2,
+  "plan_hash": "20ca581ff2686f6d971430e1e01beba49b233bab5b2455c911d14ed276ce88d5",
+  "preset_id": "site_vitrine",
+  "need": {
+    "schema": "UNICORE-NEED-1",
+    "version": "1.1.0",
+    "at": "2026-11-17T09:54:11+00:00",
+    "description": "portfolio PRO non précisé",
+    "objectives": [
+      "Livrer un portfolio PRO"
+    ],
+    "personas": [
+      "visiteur"
+    ],
+    "roles": [],
+    "features_required": [],
+    "features_optional": [],
+    "journeys": [],
+    "entities": [],
+    "integrations": [],
+    "business_model": "unknown",
+    "constraints": [
+      "PRO",
+      "ASGS"
+    ],
+    "out_of_scope": [
+      "auth",
+      "billing",
+      "database"
+    ],
+    "assumptions": [],
+    "unknowns": [
+      "product_description"
+    ],
+    "kind": "portfolio",
+    "internet": true,
+    "payment": false,
+    "email": false,
+    "extensions": [],
+    "assertions": {
+      "description": "UNKNOWN",
+      "features_required": "INFERRED",
+      "payment": "INFERRED",
+      "email": "INFERRED",
+      "stack": "INFERRED"
+    },
+    "portfolio": true,
+    "sha256": "f9ee05dd70d13920fca3e1f5f3c8925ca46b8cd00783e58de1be92fecce64a23"
+  },
+  "completed_tasks": [
+    "AUTHZ_001",
+    "GOLIVE_001",
+    "INTAKE_001",
+    "PLAN_001",
+    "PROVE_001",
+    "QUAL_001",
+    "SCAFFOLD_001",
+    "SPEC_001"
+  ],
+  "pending_tasks": [
+    "DELIVER_001",
+    "FAB_CORE_001"
+  ],
+  "blocked_tasks": [
+    "HUMAN_001"
+  ],
+  "tasks": {
+    "INTAKE_001": {
+      "task_id": "INTAKE_001",
+      "name": "Intake ASGS / need",
+      "phase": "INTAKE",
+      "asgs_gate_min": "P0",
+      "status": "COMMITTED",
+      "dependencies": [],
+      "attempts": 0,
+      "max_attempts": 3,
+      "inputs_hash": "",
+      "outputs": [],
+      "proofs": [
+        "plan"
+      ],
+      "next_action": "Intake ASGS / need",
+      "preset": "site_vitrine"
+    },
+    "SPEC_001": {
+      "task_id": "SPEC_001",
+      "name": "Normaliser need / preset",
+      "phase": "SPEC",
+      "asgs_gate_min": "P1",
+      "status": "COMMITTED",
+      "dependencies": [
+        "INTAKE_001"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "inputs_hash": "",
+      "outputs": [],
+      "proofs": [
+        "plan"
+      ],
+      "next_action": "Normaliser need / preset",
+      "preset": "site_vitrine"
+    },
+    "PLAN_001": {
+      "task_id": "PLAN_001",
+      "name": "Plan stacks + tâches",
+      "phase": "PLAN",
+      "asgs_gate_min": "P2",
+      "status": "COMMITTED",
+      "dependencies": [
+        "SPEC_001"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "inputs_hash": "",
+      "outputs": [],
+      "proofs": [
+        "plan"
+      ],
+      "next_action": "Plan stacks + tâches",
+      "preset": "site_vitrine"
+    },
+    "AUTHZ_001": {
+      "task_id": "AUTHZ_001",
+      "name": "Autorisation ASGS P4",
+      "phase": "AUTHORIZE",
+      "asgs_gate_min": "P4",
+      "status": "COMMITTED",
+      "dependencies": [
+        "PLAN_001"
+      ],
+      "attempts": 1,
+      "max_attempts": 3,
+      "inputs_hash": "",
+      "outputs": [],
+      "proofs": [
+        "ship/create_from_need"
+      ],
+      "next_action": "Autorisation ASGS P4",
+      "preset": "site_vitrine"
+    },
+    "SCAFFOLD_001": {
+      "task_id": "SCAFFOLD_001",
+      "name": "Scaffold catalogue (ship phase A)",
+      "phase": "SCAFFOLD",
+      "asgs_gate_min": "P5",
+      "status": "COMMITTED",
+      "dependencies": [
+        "AUTHZ_001"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "inputs_hash": "",
+      "outputs": [
+        "site_vitrine"
+      ],
+      "proofs": [
+        "CONTEXT_STALE_REPACK_AND_PROVE",
+        "CONTEXT_STALE_REPACK_AND_PROVE",
+        "ship.scaffold"
+      ],
+      "next_action": "Scaffold catalogue (ship phase A)",
+      "preset": "site_vitrine"
+    },
+    "FAB_CORE_001": {
+      "task_id": "FAB_CORE_001",
+      "name": "Parcours core (pages publiques)",
+      "phase": "FABRICATE",
+      "asgs_gate_min": "P5",
+      "status": "PENDING",
+      "dependencies": [
+        "SCAFFOLD_001"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "inputs_hash": "",
+      "outputs": [
+        {
+          "level": "STRUCTURE_PRESENT",
+          "note": "scaffold present — runtime/auth E2E non prouvés (UCDO §15)"
+        }
+      ],
+      "proofs": [
+        "level:STRUCTURE_PRESENT"
+      ],
+      "next_action": "Parcours core (pages publiques)",
+      "preset": "site_vitrine",
+      "evidence_level": "STRUCTURE_PRESENT"
+    },
+    "QUAL_001": {
+      "task_id": "QUAL_001",
+      "name": "Quality Vitest/tsc (deep si online)",
+      "phase": "QUALITY_LOOP",
+      "asgs_gate_min": "P5",
+      "status": "COMMITTED",
+      "dependencies": [
+        "FAB_CORE_001"
+      ],
+      "attempts": 4,
+      "max_attempts": 3,
+      "inputs_hash": "",
+      "outputs": [],
+      "proofs": [
+        "quality_loop:fail:1",
+        "quality_loop:exhausted",
+        "quality_loop:pass:1",
+        "quality_loop:pass:1"
+      ],
+      "next_action": "Quality Vitest/tsc (deep si online)",
+      "preset": "site_vitrine"
+    },
+    "PROVE_001": {
+      "task_id": "PROVE_001",
+      "name": "Preuves mission C1–C6",
+      "phase": "PROVE",
+      "asgs_gate_min": "P6",
+      "status": "COMMITTED",
+      "dependencies": [
+        "QUAL_001"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "inputs_hash": "",
+      "outputs": [],
+      "proofs": [
+        "FABRICATION_PROOF.json"
+      ],
+      "next_action": "Preuves mission C1–C6",
+      "preset": "site_vitrine"
+    },
+    "GOLIVE_001": {
+      "task_id": "GOLIVE_001",
+      "name": "GO_LIVE.md + checklist",
+      "phase": "PREPARE_GO_LIVE",
+      "asgs_gate_min": "P6",
+      "status": "COMMITTED",
+      "dependencies": [
+        "PROVE_001"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "inputs_hash": "",
+      "outputs": [],
+      "proofs": [
+        "C:\\dev\\moteur\\projets\\portfolio-florent\\GO_LIVE.md"
+      ],
+      "next_action": "GO_LIVE.md + checklist",
+      "preset": "site_vitrine"
+    },
+    "HUMAN_001": {
+      "task_id": "HUMAN_001",
+      "name": "Human gates secrets / prod",
+      "phase": "HUMAN_GATES",
+      "asgs_gate_min": "P7",
+      "status": "HUMAN_REQUIRED",
+      "dependencies": [
+        "GOLIVE_001"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "inputs_hash": "",
+      "outputs": [
+        [
+          "Remplir `.env` depuis `.env.example` (secrets locaux).",
+          "SMTP_* optionnel (soft skip sinon).",
+          "SENTRY_DSN optionnel (no-op sinon).",
+          "PRODUCTION_CERTIFY ASGS : secret approbateur + audit — jamais auto."
+        ]
+      ],
+      "proofs": [
+        "human_gates"
+      ],
+      "next_action": "Human gates secrets / prod",
+      "preset": "site_vitrine"
+    },
+    "DELIVER_001": {
+      "task_id": "DELIVER_001",
+      "name": "Livraison produit",
+      "phase": "DELIVERED",
+      "asgs_gate_min": "P8",
+      "status": "PENDING",
+      "dependencies": [
+        "HUMAN_001"
+      ],
+      "attempts": 0,
+      "max_attempts": 3,
+      "inputs_hash": "",
+      "outputs": [],
+      "proofs": [],
+      "next_action": "Livraison produit",
+      "preset": "site_vitrine"
+    }
+  },
+  "human_gates": [
+    "Remplir `.env` depuis `.env.example` (secrets locaux).",
+    "SMTP_* optionnel (soft skip sinon).",
+    "SENTRY_DSN optionnel (no-op sinon).",
+    "PRODUCTION_CERTIFY ASGS : secret approbateur + audit — jamais auto."
+  ],
+  "next_action": "Parcours core (pages publiques)",
+  "resume_required": false,
+  "host_capabilities": {
+    "filesystem": "AVAILABLE",
+    "terminal": "AVAILABLE",
+    "tests": "AVAILABLE",
+    "network": "AVAILABLE",
+    "persistent_session": "LIMITED",
+    "multi_cycle_loop": "LIMITED",
+    "background": "UNKNOWN"
+  },
+  "delivery_status": "BLOCKED",
+  "ship": {
+    "status": "FAIL",
+    "stack": "site_vitrine",
+    "verify_status": "PASS",
+    "deep_status": "PASS",
+    "go_live": "C:\\dev\\moteur\\projets\\portfolio-florent\\GO_LIVE.md",
+    "asgs_verification": "PASS",
+    "verify_exit_code": 0,
+    "reverified_at": "2026-11-17T10:17:59+00:00"
+  },
+  "anomalies": [],
+  "updated_at": "2026-11-17T10:18:02+00:00",
+  "sha256": "64471e488f46a999b6040974891b2f83adce62edc7fbee197d84089e3edf4516",
+  "product_spec": {
+    "schema": "UNICORE-PRODUCT-SPEC-1",
+    "version": "1.1.0",
+    "at": "2026-11-17T09:54:17+00:00",
+    "need_sha256": "f9ee05dd70d13920fca3e1f5f3c8925ca46b8cd00783e58de1be92fecce64a23",
+    "stack": "site_vitrine",
+    "features": [],
+    "entities": [
+      "User"
+    ],
+    "generation": {
+      "mode": "profile_or_scaffold",
+      "entities": [],
+      "forbid_dedicated_profile": true
+    },
+    "sha256": "f926347079b82f4bd6d2622c2e547f3eebfd6cbd43133890627a8ebb8a107737"
+  },
+  "stack_plan": {
+    "stack": "site_vitrine",
+    "extensions": [],
+    "factory_ok": true,
+    "reason": "Sélection déterministe à partir du catalogue vérifié."
+  },
+  "name": "vitrine",
+  "structure": {
+    "package_json": true,
+    "prisma": false,
+    "auth": false,
+    "stripe_lib": false,
+    "ci": false,
+    "go_live": true
+  },
+  "quality_loop": {
+    "schema": "UNICORE-QUALITY-LOOP-1",
+    "at": "2026-11-17T10:18:02+00:00",
+    "status": "PASS",
+    "attempts": [
+      {
+        "attempt": 1,
+        "steps": [
+          {
+            "cmd": "pnpm test",
+            "exit_code": 0,
+            "ok": true,
+            "preview": "\n> portfolio-florent@0.1.0 test C:\\dev\\moteur\\projets\\portfolio-florent\n> vitest run\n\n\n RUN  v3.2.7 C:/dev/moteur/projets/portfolio-florent\n\n ✓ tests/copy-email-button.test.tsx (2 tests) 109ms\n ✓ tests/home.test.tsx (9 tests) 276ms\n\n Test Files  2 passed (2)\n      Tests  11 passed (11)\n   Start at  11:18:00\n   Duration  2.03s (transform 158ms, setup 0ms, collect 759ms, tests 385ms, environment 1.53s, prepare 313ms)\n\n"
+          }
+        ],
+        "ok": true
+      }
+    ],
+    "max_attempts": 2,
+    "skip_ne_pass": true,
+    "last_diagnosis": null
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "schema": "UNICORE-AGENT-CONTEXT-1",
+  "version": "1.2.0",
+  "generated_at": "2026-11-17T10:17:53.010799+00:00",
+  "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
+  "engine": {
+    "name": "UNICORE",
+    "path": "C:\\dev\\moteur\\UNICORE"
+  },
+  "asgs": {
+    "file": "ASGS_Adaptive_Systemic_Governance_System.txt",
+    "sha256": "56807763f10b0cf0828fbcbdab503ad205eb592db8f8e5bc79263624cd5e4a00"
+  },
+  "must_read": [
+    {
+      "path": "C:\\dev\\moteur\\UNICORE\\ASGS_Adaptive_Systemic_Governance_System.txt",
+      "role": "gouvernance ASGS",
+      "required": true
+    },
+    {
+      "path": "C:\\dev\\moteur\\UNICORE\\GOUVERNANCE_SOI.md",
+      "role": "gouvernance du moteur sur lui-même",
+      "required": true
+    },
+    {
+      "path": "C:\\dev\\moteur\\UNICORE\\OUT_OF_FACTORY.md",
+      "role": "limites usine",
+      "required": true
+    },
+    {
+      "path": "C:\\dev\\moteur\\projets\\portfolio-florent\\.unicore\\AGENT_CONTEXT.json",
+      "role": "pack contexte courant",
+      "required": true
+    },
+    {
+      "path": "C:\\dev\\moteur\\projets\\portfolio-florent\\.unicore\\AGENT_PROVE.json",
+      "role": "preuve de lecture (context-prove)",
+      "required": true
+    },
+    {
+      "path": "C:\\dev\\moteur\\projets\\portfolio-florent\\.unicore\\AGENT_SESSION.jsonl",
+      "role": "journal de session agent",
+      "required": false
+    },
+    {
+      "path": "C:\\dev\\moteur\\projets\\portfolio-florent\\.unicore\\intervention.json",
+      "role": "dossier d'intervention",
+      "required": false
+    },
+    {
+      "path": "C:\\dev\\moteur\\projets\\portfolio-florent\\.unicore\\restitution.json",
+      "role": "dernière restitution",
+      "required": false
+    },
+    {
+      "path": "C:\\dev\\moteur\\projets\\portfolio-florent\\STATE.md",
+      "role": "mémoire projet STATE.md",
+      "required": false
+    },
+    {
+      "path": "C:\\dev\\moteur\\projets\\portfolio-florent\\.unicore\\PRODUCT_STATE.json",
+      "role": "mémoire produit STATE_CONTEXT",
+      "required": false
+    },
+    {
+      "path": "C:\\dev\\moteur\\UNICORE\\STANDARD_QUALITE_SAAS_PRO.md",
+      "role": "référentiel SaaS professionnel (définition officielle)",
+      "required": true
+    },
+    {
+      "path": "C:\\dev\\moteur\\UNICORE\\STACKS\\SAAS_CONTRACT.md",
+      "role": "contrat SaaS usine PRO",
+      "required": false
+    },
+    {
+      "path": "C:\\dev\\moteur\\UNICORE\\DESIGN_SOFT_CONTRACT.md",
+      "role": "contrat design soft",
+      "required": false
+    },
+    {
+      "path": "C:\\dev\\moteur\\UNICORE\\STATE_CONTEXT_CONTRACT.md",
+      "role": "contrat mémoire produit",
+      "required": false
+    },
+    {
+      "path": "C:\\dev\\moteur\\UNICORE\\AGENT_COMPLIANCE_CONTRACT.md",
+      "role": "contrat conformité agent ↔ UNICORE",
+      "required": true
+    }
+  ],
+  "intervention": {
+    "objective": "unicore-portfolio: portfolio PRO florent-le-bot (site_vitrine)",
+    "perimeter": "projets/portfolio-florent site vitrine Next 16",
+    "out_of_scope": "auth; billing; base de donnees; secrets chat; vercel deploy CLI; mutation cloud sans WRITE_SHARED",
+    "footprint": "STANDARD",
+    "status": "COMPLETE",
+    "gates": {
+      "P0": "CLOSED",
+      "P1": "CLOSED",
+      "P2": "CLOSED",
+      "P3": "CLOSED",
+      "P4": "CLOSED",
+      "P5": "CLOSED",
+      "P6": "CLOSED",
+      "P7": "OPEN",
+      "P8": "OPEN"
+    },
+    "risk": {
+      "class": "MODERATE",
+      "mode": "STANDARD",
+      "B": 33.0
+    },
+    "architecture": {
+      "boundaries": "unicore-portfolio: correctif normalize_need non-SaaS + fabrication site_vitrine projets/portfolio — pas de deploy cloud sans WRITE_SHARED",
+      "modules": "aaf_need, fabricate, test_aaf_spec_p1, projets/portfolio",
+      "dependency_direction": "preset site_vitrine → aaf_need.normalize_need → stacks.plan → fabricate.run → ship scaffold",
+      "data_owners": "Florent",
+      "public_contracts": "STACKS/site_vitrine.json + STANDARD SaaS PRO (UI pro) + FABRICATION_ORCHESTRATOR_CONTRACT",
+      "invariants": "need SaaS inchangé (tests AAF existants verts); SKIP!=PASS; pas vercel deploy; pas secrets chat",
+      "side_effects": "plan fabricate vitrine sans auth/Prisma; nouveau dossier projets/portfolio",
+      "out_of_scope": "PRODUCTION_CERTIFY; mutations cloud sans WRITE_SHARED; secrets"
+    },
+    "authorization": {
+      "approver": "Florent Le Bot",
+      "operations": [
+        "WRITE_LOCAL"
+      ],
+      "expires": "2026-11-17T17:56:11+00:00",
+      "authenticated": false
+    },
+    "execution_declaration": {
+      "note": "reuse_intervention P4: Scaffold catalogue STACKS (site_vitrine) + preuves pack ; gouverner≠fabriquer hors catalogue.",
+      "at": "2026-11-17T09:56:28+00:00",
+      "product_build": false
+    },
+    "verification": {
+      "status": "PASS",
+      "sha256": "b071939392b6175064391dc61ef74fe6832496533fc399f9187dd66cfeb90565"
+    },
+    "audit": null
+  },
+  "certification": null,
+  "restitution_status": null,
+  "journal_tail": [],
+  "session_tip": {
+    "sha256": "0e94631f11005a69610b1d74b9d2d3b61a3587397b7c74e532cc87321900c8b6",
+    "session_id": "unicore-portfolio",
+    "at": "2026-11-17T10:14:23.442632+00:00"
+  },
+  "session_tail": [
+    {
+      "at": "2026-11-17T09:54:52.464503+00:00",
+      "role": "agent",
+      "kind": "note",
+      "content": "fabrication portfolio PRO site_vitrine",
+      "sha256": "25ee69f0e44a75887e9d102485a4e92c4fc70efb45af6722e9356953be42376d"
+    },
+    {
+      "at": "2026-11-17T09:55:22.478841+00:00",
+      "role": "agent",
+      "kind": "note",
+      "content": "fabricate-run site_vitrine",
+      "sha256": "4557b7438f5f2b9ff122db2bfdbe47d04bd0c8c91e3530f5b42f734530932f80"
+    },
+    {
+      "at": "2026-11-17T09:55:58.250158+00:00",
+      "role": "agent",
+      "kind": "note",
+      "content": "gouvernance ASGS app portfolio",
+      "sha256": "49ab436c4decc2f1900712fb8f5b26f4bf715f00cd58e00ee17613c772f3ab2f"
+    },
+    {
+      "at": "2026-11-17T10:14:23.442632+00:00",
+      "role": "agent",
+      "kind": "note",
+      "content": "portfolio code+tests verts; reprise fabrication qualite/preuves",
+      "sha256": "0e94631f11005a69610b1d74b9d2d3b61a3587397b7c74e532cc87321900c8b6"
+    }
+  ],
+  "rules_for_agent": [
+    "Avant toute écriture : context-pack puis context-prove --session <id>.",
+    "Lire must_read ; ne jamais inventer intervention.gates.",
+    "Continuer la session (session-append) ; ne pas démarrer une mémoire parallèle.",
+    "Id session stable ⊂ intervention.objective sinon INTERVENTION_SESSION_DRIFT (M19).",
+    "Respecter out_of_scope et le contrat SaaS PRO (STANDARD V3.1).",
+    "Sans AGENT_PROVE frais lié au pack : UNICORE refuse authorize/build/scaffold/…",
+    "Dual-log + compliance-preflight/score (AGENT_COMPLIANCE_CONTRACT) ; SKIP ≠ PASS.",
+    "Score conformité < 70 : interdiction du récit « UNICORE a prouvé la fiabilité »."
+  ],
+  "limits": [
+    "UNICORE ne contrôle pas la fenêtre de tokens d'un LLM tiers.",
+    "Il refuse l'action sans prove+session — c'est la garantie actionnable.",
+    "Pas de RAG / vector store / mémoire vendor."
+  ]
+}

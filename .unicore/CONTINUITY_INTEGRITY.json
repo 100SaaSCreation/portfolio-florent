@@ -1,0 +1,48 @@
+{
+  "schema": "UNICORE-CONTINUITY-INTEGRITY-1",
+  "contract": "CONTINUITY-MICRO-1.0",
+  "module": "1.0.0",
+  "at": "2026-11-17T09:56:23+00:00",
+  "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "agent_prove",
+      "status": "PASS",
+      "session_id": "unicore-portfolio"
+    },
+    {
+      "id": "agent_session",
+      "status": "PASS"
+    },
+    {
+      "id": "product_state",
+      "status": "SKIP",
+      "reason": "no_product_state",
+      "skip_ne_pass": true
+    },
+    {
+      "id": "fabrication_state",
+      "status": "PASS",
+      "fab_status": "BLOCKED"
+    },
+    {
+      "id": "intervention",
+      "status": "PASS",
+      "execution_state": "NOT_STARTED",
+      "p4": "CLOSED"
+    },
+    {
+      "id": "decision_chain",
+      "status": "SKIP",
+      "reason": "no_decisions",
+      "skip_ne_pass": true
+    },
+    {
+      "id": "session_chain",
+      "status": "PASS",
+      "count": 3
+    }
+  ],
+  "skip_ne_pass": true
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "UNICORE-MODULE-RESULT-1",
+  "contract": "UCOL-1.0",
+  "module": "QUALITY",
+  "at": "2026-11-17T09:58:45+00:00",
+  "context_revision_read": 2,
+  "status": "FAIL",
+  "debt": false,
+  "outputs": {
+    "quality_loop": "FAIL"
+  },
+  "proofs": [
+    ".unicore/QUALITY_LOOP.json"
+  ],
+  "errors": [],
+  "suggested_next": null,
+  "skip_ne_pass": false,
+  "sha256": "40416b5967932ef4f0748ab5acecb7d39f749076faa3d5f0960cb1eeeacaaded"
+}

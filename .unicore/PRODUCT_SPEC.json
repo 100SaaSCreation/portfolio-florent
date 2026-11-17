@@ -1,0 +1,17 @@
+{
+  "schema": "UNICORE-PRODUCT-SPEC-1",
+  "version": "1.1.0",
+  "at": "2026-11-17T09:54:17+00:00",
+  "need_sha256": "f9ee05dd70d13920fca3e1f5f3c8925ca46b8cd00783e58de1be92fecce64a23",
+  "stack": "site_vitrine",
+  "features": [],
+  "entities": [
+    "User"
+  ],
+  "generation": {
+    "mode": "profile_or_scaffold",
+    "entities": [],
+    "forbid_dedicated_profile": true
+  },
+  "sha256": "f926347079b82f4bd6d2622c2e547f3eebfd6cbd43133890627a8ebb8a107737"
+}

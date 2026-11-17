@@ -1,0 +1,58 @@
+{
+  "schema": "UNICORE-OPERATIONAL-CONTEXT-1",
+  "version": "1.0.0",
+  "contract": "UCOL-1.0",
+  "revision": 2,
+  "at": "2026-11-17T09:58:42+00:00",
+  "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
+  "session_id": "unicore-portfolio",
+  "intent": {
+    "user_goal": "fabrication portfolio PRO site_vitrine",
+    "normalized_need_ref": null,
+    "assertions": [],
+    "out_of_scope": []
+  },
+  "asgs": {
+    "objective": null,
+    "gates": {},
+    "authorization_ops": [],
+    "authorization_expires": null,
+    "authorization_authenticated": false,
+    "certification_status": null,
+    "execution_state": null,
+    "risk_class": null,
+    "note": "read_only_mirror — UCOL does not grant authorization"
+  },
+  "product": {
+    "product_state_sha256": null,
+    "stack_id": null,
+    "quality_profile": null,
+    "name": null
+  },
+  "fabrication": {
+    "mission_id": "fab_28fe5a14a6a7",
+    "phase": "RUNNING",
+    "checkpoint": null
+  },
+  "integrations": {
+    "ucdo_levels": {}
+  },
+  "quality": {
+    "last_loop": null,
+    "debts": []
+  },
+  "proofs": {
+    "product_proof": null,
+    "go_live_terminal": null,
+    "capability": []
+  },
+  "handoff": {
+    "commercial_ready": false,
+    "claim_saas_pro_sellable": false,
+    "blockers": []
+  },
+  "decisions_tip_sha256": null,
+  "next_action": "HUMAN_REQUIRED",
+  "blockers": [],
+  "sha256": "444d891c2e958f0dc3ce4775f7d8c7443ebacc7993f060d15f0f81fd07ce5051"
+}

@@ -1,0 +1,150 @@
+{
+  "schema": "UNICORE-FABRICATION-PROOF-2",
+  "contract_version": "MICRO-1.2",
+  "mission_id": "fab_28fe5a14a6a7",
+  "engine_version": "1.4.0",
+  "at": "2026-11-17T10:18:02+00:00",
+  "need": {
+    "schema": "UNICORE-NEED-1",
+    "version": "1.1.0",
+    "at": "2026-11-17T09:54:11+00:00",
+    "description": "portfolio PRO non précisé",
+    "objectives": [
+      "Livrer un portfolio PRO"
+    ],
+    "personas": [
+      "visiteur"
+    ],
+    "roles": [],
+    "features_required": [],
+    "features_optional": [],
+    "journeys": [],
+    "entities": [],
+    "integrations": [],
+    "business_model": "unknown",
+    "constraints": [
+      "PRO",
+      "ASGS"
+    ],
+    "out_of_scope": [
+      "auth",
+      "billing",
+      "database"
+    ],
+    "assumptions": [],
+    "unknowns": [
+      "product_description"
+    ],
+    "kind": "portfolio",
+    "internet": true,
+    "payment": false,
+    "email": false,
+    "extensions": [],
+    "assertions": {
+      "description": "UNKNOWN",
+      "features_required": "INFERRED",
+      "payment": "INFERRED",
+      "email": "INFERRED",
+      "stack": "INFERRED"
+    },
+    "portfolio": true,
+    "sha256": "f9ee05dd70d13920fca3e1f5f3c8925ca46b8cd00783e58de1be92fecce64a23"
+  },
+  "need_sha256": "f9ee05dd70d13920fca3e1f5f3c8925ca46b8cd00783e58de1be92fecce64a23",
+  "product_spec_sha256": "f926347079b82f4bd6d2622c2e547f3eebfd6cbd43133890627a8ebb8a107737",
+  "preset_id": "site_vitrine",
+  "stack": "site_vitrine",
+  "structure": {
+    "package_json": true,
+    "prisma": false,
+    "auth": false,
+    "stripe_lib": false,
+    "ci": false,
+    "go_live": true
+  },
+  "aaf_features": null,
+  "quality_loop": {
+    "schema": "UNICORE-QUALITY-LOOP-1",
+    "at": "2026-11-17T10:18:02+00:00",
+    "status": "PASS",
+    "attempts": [
+      {
+        "attempt": 1,
+        "steps": [
+          {
+            "cmd": "pnpm test",
+            "exit_code": 0,
+            "ok": true,
+            "preview": "\n> portfolio-florent@0.1.0 test C:\\dev\\moteur\\projets\\portfolio-florent\n> vitest run\n\n\n RUN  v3.2.7 C:/dev/moteur/projets/portfolio-florent\n\n ✓ tests/copy-email-button.test.tsx (2 tests) 109ms\n ✓ tests/home.test.tsx (9 tests) 276ms\n\n Test Files  2 passed (2)\n      Tests  11 passed (11)\n   Start at  11:18:00\n   Duration  2.03s (transform 158ms, setup 0ms, collect 759ms, tests 385ms, environment 1.53s, prepare 313ms)\n\n"
+          }
+        ],
+        "ok": true
+      }
+    ],
+    "max_attempts": 2,
+    "skip_ne_pass": true,
+    "last_diagnosis": null
+  },
+  "acceptance": {},
+  "layers": {
+    "C1_structure": {
+      "status": "PASS",
+      "artifact": "scaffold/ship",
+      "evidence_level": "STRUCTURE_PRESENT"
+    },
+    "C2_code_local": {
+      "status": "PASS",
+      "artifact": "verify_scaffold",
+      "deep_status": "PASS"
+    },
+    "C3_parcours": {
+      "status": "SKIP",
+      "artifact": "micro_pack",
+      "evidence_level": "STRUCTURE_PRESENT",
+      "note": "scaffold auth files ≠ runtime login proof",
+      "skip_ne_pass": true
+    },
+    "C4_integrations": {
+      "status": "SKIP",
+      "evidence_level": "NONE",
+      "note": "soft libs ≠ provider connection verified",
+      "skip_ne_pass": true
+    },
+    "C5_soft_audits": {
+      "status": "SKIP",
+      "note": "seo/adversary/lh : commandes dédiées",
+      "skip_ne_pass": true
+    },
+    "C6_delivery": {
+      "status": "PASS",
+      "artifact": "GO_LIVE.md",
+      "delivery_status": "BLOCKED",
+      "human_gates": [
+        "Remplir `.env` depuis `.env.example` (secrets locaux).",
+        "SMTP_* optionnel (soft skip sinon).",
+        "SENTRY_DSN optionnel (no-op sinon).",
+        "PRODUCTION_CERTIFY ASGS : secret approbateur + audit — jamais auto."
+      ]
+    }
+  },
+  "completed_tasks": [
+    "AUTHZ_001",
+    "GOLIVE_001",
+    "INTAKE_001",
+    "PLAN_001",
+    "PROVE_001",
+    "QUAL_001",
+    "SCAFFOLD_001",
+    "SPEC_001"
+  ],
+  "human_gates": [
+    "Remplir `.env` depuis `.env.example` (secrets locaux).",
+    "SMTP_* optionnel (soft skip sinon).",
+    "SENTRY_DSN optionnel (no-op sinon).",
+    "PRODUCTION_CERTIFY ASGS : secret approbateur + audit — jamais auto."
+  ],
+  "delivery_status": "BLOCKED",
+  "continuity_sha256": "64471e488f46a999b6040974891b2f83adce62edc7fbee197d84089e3edf4516",
+  "asgs_note": "certification.status uniquement via restitution ASGS — absent de cette preuve feature",
+  "sha256": "f9198f096be68d27ccb2e7e85d6bbde4c3e56c2e057f5efbda72ea7635024129"
+}

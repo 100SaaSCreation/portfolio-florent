@@ -1,0 +1,28 @@
+{
+  "schema": "UNICORE-PRODUCT-STATE-1",
+  "contract": "STATE-CONTEXT-1.0",
+  "module": "1.0.0",
+  "name": "vitrine",
+  "domain": "",
+  "journeys": [],
+  "design_preset": "ocean",
+  "design": {
+    "preset": "ocean"
+  },
+  "stack": {
+    "stack": "site_vitrine",
+    "extensions": []
+  },
+  "human_gates": [
+    "Remplir secrets (.env / Vercel)",
+    "Cocher GO_LIVE après /api/health"
+  ],
+  "proofs": {},
+  "next_actions": [
+    "pnpm install && pnpm test && pnpm build",
+    "Connecter GitHub → Vercel → Neon (STACK_CONNECT)",
+    "Après GitHub: snyk-connect-open (web clic) puis snyk test/monitor ; pnpm lh:soft — jamais SNYK_TOKEN dans le chat"
+  ],
+  "notes": [],
+  "updated_at": "2026-11-17T09:58:42+00:00"
+}

@@ -1,0 +1,25 @@
+{"at": "2026-11-17T09:54:17+00:00", "type": "PLAN", "mission_id": "fab_28fe5a14a6a7", "plan_hash": "20ca581ff2686f6d971430e1e01beba49b233bab5b2455c911d14ed276ce88d5", "stack": "site_vitrine", "preset_id": "site_vitrine"}
+{"at": "2026-11-17T09:54:17+00:00", "type": "CHECKPOINT", "checkpoint_id": "cp_20261117T095417Z_086559", "label": "after_plan"}
+{"at": "2026-11-17T09:55:04+00:00", "type": "RUN_START", "mission_id": "fab_28fe5a14a6a7"}
+{"at": "2026-11-17T09:55:04+00:00", "type": "CHECKPOINT", "checkpoint_id": "cp_20261117T095504Z_337eab", "label": "before_scaffold"}
+{"at": "2026-11-17T09:55:08+00:00", "type": "RUN_FAIL", "error": "CONTEXT_STALE_REPACK_AND_PROVE"}
+{"at": "2026-11-17T09:55:22+00:00", "type": "RUN_START", "mission_id": "fab_28fe5a14a6a7"}
+{"at": "2026-11-17T09:55:22+00:00", "type": "CHECKPOINT", "checkpoint_id": "cp_20261117T095522Z_2964b3", "label": "before_scaffold"}
+{"at": "2026-11-17T09:55:27+00:00", "type": "RUN_FAIL", "error": "CONTEXT_STALE_REPACK_AND_PROVE"}
+{"at": "2026-11-17T09:56:23+00:00", "type": "RUN_START", "mission_id": "fab_28fe5a14a6a7"}
+{"at": "2026-11-17T09:56:23+00:00", "type": "CHECKPOINT", "checkpoint_id": "cp_20261117T095623Z_b9153c", "label": "before_scaffold"}
+{"at": "2026-11-17T09:58:45+00:00", "type": "QUALITY_FAIL", "attempt": 1, "diagnosis": {"codes": ["TEST_FAIL"], "primary": "TEST_FAIL", "repairable": true}}
+{"at": "2026-11-17T09:58:45+00:00", "type": "QUALITY_LOOP", "status": "FAIL"}
+{"at": "2026-11-17T09:58:45+00:00", "type": "CHECKPOINT", "checkpoint_id": "cp_20261117T095845Z_ecb8ab", "label": "after_quality_loop"}
+{"at": "2026-11-17T09:58:45+00:00", "type": "CHECKPOINT", "checkpoint_id": "cp_20261117T095845Z_11fc39", "label": "after_run"}
+{"at": "2026-11-17T09:58:45+00:00", "type": "RUN_END", "mission_id": "fab_28fe5a14a6a7", "delivery_status": "BLOCKED", "ship_status": "FAIL", "cloud": false}
+{"at": "2026-11-17T10:14:26+00:00", "type": "QUALITY_LOOP", "status": "PASS"}
+{"at": "2026-11-17T10:14:26+00:00", "type": "CHECKPOINT", "checkpoint_id": "cp_20261117T101426Z_bf50c7", "label": "after_quality_loop"}
+{"at": "2026-11-17T10:14:39+00:00", "type": "PROVE", "proof_sha256": "0033d386981f97af7d59ef52d6b192cb3453cec204b409b64da3e518e30c51c5"}
+{"at": "2026-11-17T10:14:52+00:00", "type": "PROVE", "proof_sha256": "826e4a483181442ca5260dcc16003085390ac134c3ba00b1a64ed2de11c963de"}
+{"at": "2026-11-17T10:17:59+00:00", "type": "REVERIFY", "verify_status": "PASS"}
+{"at": "2026-11-17T10:17:59+00:00", "type": "RESUME", "anomalies": [], "next": "FAB_CORE_001"}
+{"at": "2026-11-17T10:17:59+00:00", "type": "CHECKPOINT", "checkpoint_id": "cp_20261117T101759Z_6fd0b9", "label": "after_resume"}
+{"at": "2026-11-17T10:18:02+00:00", "type": "QUALITY_LOOP", "status": "PASS"}
+{"at": "2026-11-17T10:18:02+00:00", "type": "CHECKPOINT", "checkpoint_id": "cp_20261117T101802Z_7a007f", "label": "after_quality_loop"}
+{"at": "2026-11-17T10:18:02+00:00", "type": "PROVE", "proof_sha256": "f9198f096be68d27ccb2e7e85d6bbde4c3e56c2e057f5efbda72ea7635024129"}

@@ -1,0 +1,46 @@
+{
+  "schema": "UNICORE-NEED-1",
+  "version": "1.1.0",
+  "at": "2026-11-17T09:54:11+00:00",
+  "description": "portfolio PRO non précisé",
+  "objectives": [
+    "Livrer un portfolio PRO"
+  ],
+  "personas": [
+    "visiteur"
+  ],
+  "roles": [],
+  "features_required": [],
+  "features_optional": [],
+  "journeys": [],
+  "entities": [],
+  "integrations": [],
+  "business_model": "unknown",
+  "constraints": [
+    "PRO",
+    "ASGS"
+  ],
+  "out_of_scope": [
+    "auth",
+    "billing",
+    "database"
+  ],
+  "assumptions": [],
+  "unknowns": [
+    "product_description"
+  ],
+  "kind": "portfolio",
+  "internet": true,
+  "payment": false,
+  "email": false,
+  "extensions": [],
+  "assertions": {
+    "description": "UNKNOWN",
+    "features_required": "INFERRED",
+    "payment": "INFERRED",
+    "email": "INFERRED",
+    "stack": "INFERRED"
+  },
+  "portfolio": true,
+  "sha256": "f9ee05dd70d13920fca3e1f5f3c8925ca46b8cd00783e58de1be92fecce64a23"
+}

@@ -1,0 +1,128 @@
+{
+  "engine": "UNICORE",
+  "engine_version": "1.3.0",
+  "asgs": {
+    "file": "ASGS_Adaptive_Systemic_Governance_System.txt",
+    "sha256": "56807763f10b0cf0828fbcbdab503ad205eb592db8f8e5bc79263624cd5e4a00"
+  },
+  "created_at": "2026-11-17T09:55:57+00:00",
+  "footprint": "STANDARD",
+  "objective": "unicore-portfolio: portfolio PRO florent-le-bot (site_vitrine)",
+  "perimeter": "projets/portfolio-florent site vitrine Next 16",
+  "out_of_scope": "auth; billing; base de donnees; secrets chat; vercel deploy CLI; mutation cloud sans WRITE_SHARED",
+  "discovery": {
+    "status": "COMPLETE",
+    "items": [
+      {
+        "file": "N/A — aucun manifeste",
+        "ecosystem": "N/A",
+        "status": "N/A"
+      }
+    ],
+    "conflicts": [],
+    "commands": [],
+    "verify_command": [
+      "C:\\Users\\flore\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "C:\\dev\\moteur\\UNICORE\\verify_scaffold.py",
+      "C:\\dev\\moteur\\projets\\portfolio-florent"
+    ]
+  },
+  "architecture": {
+    "status": "CONFIRMED",
+    "profile": "ASGS-ARCH-DEFAULT",
+    "answers": {
+      "boundaries": "unicore-portfolio: correctif normalize_need non-SaaS + fabrication site_vitrine projets/portfolio — pas de deploy cloud sans WRITE_SHARED",
+      "modules": "aaf_need, fabricate, test_aaf_spec_p1, projets/portfolio",
+      "dependency_direction": "preset site_vitrine → aaf_need.normalize_need → stacks.plan → fabricate.run → ship scaffold",
+      "data_owners": "Florent",
+      "public_contracts": "STACKS/site_vitrine.json + STANDARD SaaS PRO (UI pro) + FABRICATION_ORCHESTRATOR_CONTRACT",
+      "invariants": "need SaaS inchangé (tests AAF existants verts); SKIP!=PASS; pas vercel deploy; pas secrets chat",
+      "side_effects": "plan fabricate vitrine sans auth/Prisma; nouveau dossier projets/portfolio",
+      "out_of_scope": "PRODUCTION_CERTIFY; mutations cloud sans WRITE_SHARED; secrets"
+    }
+  },
+  "risk": {
+    "dimensions": {
+      "T": 2,
+      "F": 2,
+      "D": 1,
+      "S": 2,
+      "A": 1,
+      "I": 2,
+      "U": 2
+    },
+    "floors": [],
+    "restore_plan": "git restore UNICORE/aaf_need.py UNICORE/fabricate.py ; suppression projets/portfolio",
+    "B": 33.0,
+    "class": "MODERATE",
+    "mode": "STANDARD",
+    "confidence": "HIGH",
+    "provisional": false,
+    "assessed_at": "2026-11-17T09:55:58+00:00",
+    "interactions": []
+  },
+  "authorization": {
+    "approver": "Florent Le Bot",
+    "reason": "unicore-portfolio scaffold vitrine PRO",
+    "perimeter": "projets/portfolio-florent site vitrine Next 16",
+    "operations": [
+      "WRITE_LOCAL"
+    ],
+    "at": "2026-11-17T09:56:12+00:00",
+    "expires": "2026-11-17T17:56:11+00:00",
+    "authenticated": false
+  },
+  "verification": {
+    "command": [
+      "C:\\Users\\flore\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "C:\\dev\\moteur\\UNICORE\\verify_scaffold.py",
+      "C:\\dev\\moteur\\projets\\portfolio-florent"
+    ],
+    "status": "PASS",
+    "exit_code": 0,
+    "sha256": "b071939392b6175064391dc61ef74fe6832496533fc399f9187dd66cfeb90565",
+    "preview": "{\"status\": \"PASS\", \"stack\": \"site_vitrine\", \"extensions\": []}\n{\"status\": \"PASS\", \"phase\": \"structure\", \"root\": \"C:\\\\dev\\\\moteur\\\\projets\\\\portfolio-florent\", \"stack\": \"site_vitrine\", \"commercial_ready\": false, \"code\": {\"skipped\": true, \"reason\": \"offline_or_structure_only\"}}\n",
+    "preview_truncated": false,
+    "preview_limit": 4000,
+    "at": "2026-11-17T09:56:28+00:00"
+  },
+  "audit": null,
+  "execution_state": "COMPLETE",
+  "gates": {
+    "P0": "CLOSED",
+    "P1": "CLOSED",
+    "P2": "CLOSED",
+    "P3": "CLOSED",
+    "P4": "CLOSED",
+    "P5": "CLOSED",
+    "P6": "CLOSED",
+    "P7": "OPEN",
+    "P8": "OPEN"
+  },
+  "limits": [],
+  "agent_context": {
+    "schema": "UNICORE-AGENT-CONTEXT-1",
+    "written": {
+      "json": "C:\\dev\\moteur\\projets\\portfolio-florent\\.unicore\\AGENT_CONTEXT.json",
+      "md": "C:\\dev\\moteur\\projets\\portfolio-florent\\.unicore\\AGENT_CONTEXT.md"
+    },
+    "at": "2026-11-17T09:55:57+00:00"
+  },
+  "scaffold": {
+    "files": [
+      "package.json",
+      "STACK_PROOF.md",
+      "unicore-stack.json"
+    ],
+    "stack": "site_vitrine",
+    "extensions": [],
+    "commercial_ready": false,
+    "micro_saas": false,
+    "at": "2026-11-17T09:56:28+00:00"
+  },
+  "execution_declaration": {
+    "note": "reuse_intervention P4: Scaffold catalogue STACKS (site_vitrine) + preuves pack ; gouverner≠fabriquer hors catalogue.",
+    "at": "2026-11-17T09:56:28+00:00",
+    "product_build": false
+  }
+}
