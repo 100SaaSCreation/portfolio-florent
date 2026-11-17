@@ -17,12 +17,14 @@
 - Routes : `/`, `/admin`, `/admin/login`, légales, robots/sitemap
 
 ### Preuves
-- Local : lint 0 · tsc 0 · Vitest 16/16 · couverture lignes ~98 % · build 0 · Snyk 0 vuln · LH local ~90/100/100/100
-- Public : HTTP 200 sur `/`, `/mentions-legales`, `/confidentialite`, `/robots.txt` · LH public perf 72 / a11y 100 / bp 100 / seo 100 · console OK
-- UCDO : GitHub CREATED, Vercel CREATED, Snyk PASS ; C8 runtime SKIP (≠ PASS) — health runtime observé manuellement via URL silk
-- Note : `portfolio-florent.vercel.app` = ancien Vite ; prod officielle = `portfolio-florent-le-bot.vercel.app`
+- Local : lint 0 · tsc 0 · Vitest 19/19 · build 0 · Snyk 0 vuln
+- Google PageSpeed (`pagespeed.web.dev`, 2026-11-17) mobile+desktop : perf/a11y/BP **100**, SEO **92** — FAIL audit `robots-txt` (URL Sitemap coupée : CR/LF dans env `NEXT_PUBLIC_SITE_URL` Vercel)
+- Correctif : `lib/site.ts` `normalizeSiteUrl(trim)` — **redeploy requis** pour SEO 100
+- UNICORE : `lh-online-prove` (PageSpeed online) ; LH localhost ≠ PASS online
+- UCDO : GitHub + Vercel + Snyk PASS ; ancien domaine `portfolio-florent.vercel.app` = Vite legacy
 
 ### Next actions
+- Push + redeploy Vercel ; nettoyer CR/LF env `NEXT_PUBLIC_SITE_URL`
+- Relancer `lh-online-prove` jusqu'à PASS (SEO 100)
 - H3 : domaine custom (optionnel)
-- H4 : démos publiques optionnelles
 <!-- PRODUCT:END -->

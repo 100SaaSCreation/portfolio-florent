@@ -1,0 +1,15 @@
+{
+  "status": "FAIL",
+  "url": "https://portfolio-florent-le-bot.vercel.app/",
+  "at": "2026-11-17T16:10:50+00:00",
+  "scores": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 92
+  },
+  "gate": "ONLINE_FAIL",
+  "tool": "pagespeed_insights",
+  "online": true,
+  "source": "pagespeed_insights"
+}
