@@ -14,9 +14,11 @@ export default function MentionsLegalesPage() {
       <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight">Mentions légales</h1>
       <div className="mt-10 space-y-8 leading-relaxed text-muted">
         <section>
-          <h2 className="font-heading text-xl font-semibold text-ink">Éditeur</h2>
+          <h2 className="font-heading text-xl font-semibold text-ink">Éditeur / responsable de publication</h2>
           <p className="mt-2">
             {identity.name}
+            <br />
+            Personne physique — site personnel de présentation professionnelle
             <br />
             {identity.role}
             <br />
@@ -26,8 +28,8 @@ export default function MentionsLegalesPage() {
             </a>
           </p>
           <p className="mt-3 text-sm">
-            Site personnel de présentation professionnelle. Aucune activité e-commerce ni compte utilisateur
-            sur ce site.
+            Ce site n’exerce pas d’activité e-commerce, n’ouvre pas de compte utilisateur public et n’est pas
+            immatriculé au RCS pour cette vitrine. Pas de SIRET affiché : publication à titre personnel.
           </p>
         </section>
         <section>
@@ -48,6 +50,16 @@ export default function MentionsLegalesPage() {
           </p>
         </section>
         <section>
+          <h2 className="font-heading text-xl font-semibold text-ink">Données personnelles</h2>
+          <p className="mt-2">
+            Politique détaillée :{" "}
+            <Link href="/confidentialite" className="font-code text-bronze underline underline-offset-4">
+              /confidentialite
+            </Link>
+            . Aucun cookie de suivi, aucun traceur publicitaire sur cette vitrine.
+          </p>
+        </section>
+        <section>
           <h2 className="font-heading text-xl font-semibold text-ink">Propriété intellectuelle</h2>
           <p className="mt-2">
             Les textes, la structure et le code de ce portfolio sont la propriété de {identity.name}, sauf
@@ -57,8 +69,8 @@ export default function MentionsLegalesPage() {
         <section>
           <h2 className="font-heading text-xl font-semibold text-ink">Responsabilité</h2>
           <p className="mt-2">
-            Les liens vers des projets tiers (ex. LienMuet2) renvoient vers des services distincts, soumis à
-            leurs propres conditions. Ce portfolio n’héberge ni données clients ni paiements.
+            Les liens vers des projets tiers (ex. LienMuet2, Ti Food, SpeedGest) renvoient vers des services
+            distincts, soumis à leurs propres conditions. Ce portfolio n’héberge ni données clients ni paiements.
           </p>
         </section>
       </div>

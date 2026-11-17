@@ -1,0 +1,24 @@
+{
+  "schema": "UNICORE-GITHUB-PIPELINE-1",
+  "at": "2026-11-17T15:43:15+00:00",
+  "contract": "GITHUB_PIPELINE-1.0",
+  "action": "seed",
+  "written": [
+    ".github/dependabot.yml",
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    ".github/CODEOWNERS",
+    ".github/ISSUE_TEMPLATE/bug.md",
+    "SECURITY.md",
+    "STACK_CONNECT.md"
+  ],
+  "updated": [],
+  "skipped": [],
+  "apply": true,
+  "human_required": [
+    "branch_protection_or_rulesets_main",
+    "dependabot_alerts_ui",
+    "secret_scanning_if_available",
+    "snyk_connect_open_web_click_after_github_push",
+    "snyk_ci_skip_debt_ok_without_chat_secret"
+  ]
+}

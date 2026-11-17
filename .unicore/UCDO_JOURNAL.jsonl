@@ -1,0 +1,22 @@
+{"type": "PREFLIGHT", "status": "READY", "gates": [], "at": "2026-11-17T11:31:47+00:00"}
+{"type": "ASGS_GATE", "status": "OK", "mode": "MUTATION", "operations": ["WRITE_SHARED"], "at": "2026-11-17T11:34:21+00:00"}
+{"type": "PREFLIGHT", "status": "READY", "gates": [], "at": "2026-11-17T11:34:21+00:00"}
+{"type": "ADAPTER", "adapter": "github", "status": "SKIP", "evidence_level": "EXTERNAL_CONNECTION_VERIFIED", "evidence_downgrade": null, "at": "2026-11-17T11:34:22+00:00"}
+{"type": "ADAPTER", "adapter": "neon", "status": "PASS", "evidence_level": "EXTERNAL_CONNECTION_VERIFIED", "evidence_downgrade": null, "at": "2026-11-17T11:34:25+00:00"}
+{"type": "ADAPTER", "adapter": "vercel", "status": "SKIP", "evidence_level": "EXTERNAL_CONNECTION_VERIFIED", "evidence_downgrade": null, "at": "2026-11-17T11:34:26+00:00"}
+{"type": "ADAPTER", "adapter": "snyk", "status": "PASS", "evidence_level": "RUNTIME_TESTED", "evidence_downgrade": null, "at": "2026-11-17T11:34:37+00:00"}
+{"type": "RUN_END", "status": "READY_FOR_PRODUCTION_DOC", "at": "2026-11-17T11:34:37+00:00"}
+{"type": "ASGS_GATE", "status": "OK", "mode": "MUTATION", "operations": ["WRITE_SHARED"], "at": "2026-11-17T11:36:28+00:00"}
+{"type": "PREFLIGHT", "status": "READY", "gates": [], "at": "2026-11-17T11:36:28+00:00"}
+{"type": "ADAPTER", "adapter": "github", "status": "PASS", "evidence_level": "EXTERNAL_CONNECTION_VERIFIED", "evidence_downgrade": null, "at": "2026-11-17T11:36:34+00:00"}
+{"type": "ADAPTER", "adapter": "neon", "status": "PASS", "evidence_level": "EXTERNAL_CONNECTION_VERIFIED", "evidence_downgrade": null, "at": "2026-11-17T11:36:38+00:00"}
+{"type": "ADAPTER", "adapter": "vercel", "status": "PASS", "evidence_level": "EXTERNAL_CONNECTION_VERIFIED", "evidence_downgrade": null, "at": "2026-11-17T11:36:44+00:00"}
+{"type": "ADAPTER", "adapter": "snyk", "status": "PASS", "evidence_level": "RUNTIME_TESTED", "evidence_downgrade": null, "at": "2026-11-17T11:36:54+00:00"}
+{"type": "RUN_END", "status": "READY_FOR_PRODUCTION_DOC", "at": "2026-11-17T11:36:54+00:00"}
+{"type": "ASGS_GATE", "status": "OK", "mode": "MUTATION", "operations": ["WRITE_SHARED"], "at": "2026-11-17T13:26:37+00:00"}
+{"type": "PREFLIGHT", "status": "READY", "gates": [], "at": "2026-11-17T13:26:37+00:00"}
+{"type": "ADAPTER", "adapter": "github", "status": "PASS", "evidence_level": "EXTERNAL_CONNECTION_VERIFIED", "evidence_downgrade": null, "at": "2026-11-17T13:26:39+00:00"}
+{"type": "ADAPTER", "adapter": "neon", "status": "PASS", "evidence_level": "EXTERNAL_CONNECTION_VERIFIED", "evidence_downgrade": null, "at": "2026-11-17T13:26:46+00:00"}
+{"type": "ADAPTER", "adapter": "vercel", "status": "PASS", "evidence_level": "EXTERNAL_CONNECTION_VERIFIED", "evidence_downgrade": null, "at": "2026-11-17T13:26:54+00:00"}
+{"type": "ADAPTER", "adapter": "snyk", "status": "PASS", "evidence_level": "RUNTIME_TESTED", "evidence_downgrade": null, "at": "2026-11-17T13:27:17+00:00"}
+{"type": "RUN_END", "status": "READY_FOR_PRODUCTION_DOC", "at": "2026-11-17T13:27:17+00:00"}

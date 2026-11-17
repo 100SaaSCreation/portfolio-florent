@@ -52,7 +52,7 @@ export async function createAdminSession(userId: string, email: string) {
   const jar = await cookies();
   jar.set(COOKIE, token, {
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: "strict",
     secure: process.env.NODE_ENV === "production",
     path: "/",
     maxAge: MAX_AGE,

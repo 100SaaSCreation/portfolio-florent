@@ -123,8 +123,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </li>
         ))}
       </ul>
-      <div className="mt-auto pt-6">
+      <div className="mt-auto space-y-4 pt-6">
         <StackList items={project.stack} tone="light" />
+        {project.url ? (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-code text-[13px] text-bronze underline underline-offset-4"
+          >
+            Ouvrir {project.name}
+            <span aria-hidden>↗</span>
+            <span className="sr-only">(nouvel onglet)</span>
+          </a>
+        ) : null}
       </div>
     </article>
   );

@@ -1,6 +1,6 @@
 # AGENT_CONTEXT (UNICORE 1.2.0)
 
-Généré : `2026-11-17T15:19:15.172340+00:00`
+Généré : `2026-11-17T15:38:19.361605+00:00`
 Racine : `C:\dev\moteur\projets\portfolio-florent`
 
 ## Règles agent
@@ -39,7 +39,7 @@ Racine : `C:\dev\moteur\projets\portfolio-florent`
 - Portes : P0=CLOSED, P1=CLOSED, P2=CLOSED, P3=CLOSED, P4=CLOSED, P5=CLOSED, P6=CLOSED, P7=OPEN, P8=OPEN
 
 ## Session
-- tip `d76bf48c826200daf0acdd5dacfa0bae2069fa3631dff9d617501033ba477733` session `unicore-portfolio` @ 2026-11-17T15:19:15.006904+00:00
+- tip `ddff0f770c58427b7409ec37f08a581af948c4a822c4cffafe3c3a94a94b5e6e` session `unicore-portfolio` @ 2026-11-17T15:38:19.115798+00:00
 
 ## Limites
 - UNICORE ne contrôle pas la fenêtre de tokens d'un LLM tiers.

@@ -42,12 +42,16 @@ describe("page d'accueil", () => {
     }
   });
 
-  it("le seul lien externe est le projet en production, ouvert de façon sûre", async () => {
+  it("chaque projet live a un lien externe sûr", async () => {
     const { container } = await renderHome();
-    const external = Array.from(container.querySelectorAll<HTMLAnchorElement>('a[href^="http"]'));
+    const external = Array.from(container.querySelectorAll<HTMLAnchorElement>('a[href^="http"]')).map((a) =>
+      a.href.replace(/\/$/, ""),
+    );
     const live = projects.filter((p) => p.status === "live");
-    expect(external.map((a) => a.href.replace(/\/$/, ""))).toEqual(live.map((p) => p.url));
-    for (const anchor of external) {
+    for (const project of live) {
+      expect(external).toContain(project.url!.replace(/\/$/, ""));
+    }
+    for (const anchor of container.querySelectorAll<HTMLAnchorElement>('a[href^="http"]')) {
       expect(anchor.getAttribute("target")).toBe("_blank");
       expect(anchor.getAttribute("rel")).toContain("noopener");
     }

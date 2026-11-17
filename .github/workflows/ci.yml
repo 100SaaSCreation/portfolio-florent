@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      DATABASE_URL: postgresql://user:pass@localhost:5432/ci?sslmode=disable
+      ADMIN_SESSION_SECRET: ci-admin-session-secret-32chars-min
+      ADMIN_EMAIL: ci@example.com
+      ADMIN_PASSWORD: ci-password-12chars
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile=true
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm typecheck
+      - run: pnpm build
+      - name: Snyk
+        if: ${{ env.SNYK_TOKEN != '' }}
+        uses: snyk/actions/node@0.4.0
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high --fail-on=all
+      - name: Snyk debt artifact when skipped
+        if: ${{ env.SNYK_TOKEN == '' }}
+        run: |
+          mkdir -p .unicore/audit
+          echo '{"status":"SKIP","detail":"SNYK_TOKEN_MISSING","debt":true}' > .unicore/audit/snyk_ci.json

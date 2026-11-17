@@ -1,0 +1,156 @@
+{
+  "schema": "UNICORE-UCDO-STATE-1",
+  "contract_version": "UCDO-MICRO-1.1",
+  "module_version": "1.1.0",
+  "current_step": "DELIVERY_PROOF",
+  "preflight": {
+    "status": "READY",
+    "human_gates": []
+  },
+  "asgs": {
+    "status": "OK",
+    "mode": "MUTATION",
+    "operations": [
+      "WRITE_SHARED"
+    ],
+    "approver": "Florent Le Bot",
+    "expires": "2026-11-18T23:59:59+00:00"
+  },
+  "results": {
+    "github": {
+      "adapter": "github",
+      "status": "PASS",
+      "evidence_level": "EXTERNAL_CONNECTION_VERIFIED",
+      "message": "repo existant vérifié (100SaaSCreation/portfolio-florent)",
+      "proofs": [
+        "external:github:identity:100SaaSCreation",
+        "external:github:repo:100SaaSCreation/portfolio-florent"
+      ],
+      "resources": [
+        {
+          "provider": "github",
+          "type": "repository",
+          "id": "100SaaSCreation/portfolio-florent",
+          "environment": "shared",
+          "status": "EXISTS",
+          "ownership": "external_or_existing"
+        }
+      ],
+      "human_gates": [],
+      "details": {
+        "login": "100SaaSCreation",
+        "ci": "NO_RUNS",
+        "private": "***REDACTED***"
+      },
+      "at": "2026-11-17T13:26:39+00:00"
+    },
+    "neon": {
+      "adapter": "neon",
+      "status": "PASS",
+      "evidence_level": "EXTERNAL_CONNECTION_VERIFIED",
+      "message": "projet Neon créé (neonctl)",
+      "proofs": [
+        "external:neon:cli:list_projects",
+        "external:neon:cli:project_created:tiny-sound-82293690"
+      ],
+      "resources": [
+        {
+          "provider": "neon",
+          "type": "project",
+          "id": "tiny-sound-82293690",
+          "environment": "preview",
+          "status": "CREATED",
+          "ownership": "ucdo"
+        }
+      ],
+      "human_gates": [],
+      "details": {
+        "name": "portfolio-florent-le-bot",
+        "created": true,
+        "auth_mode": "cli_fallback"
+      },
+      "at": "2026-11-17T13:26:46+00:00"
+    },
+    "vercel": {
+      "adapter": "vercel",
+      "status": "PASS",
+      "evidence_level": "EXTERNAL_CONNECTION_VERIFIED",
+      "message": "projet Vercel créé (CLI) — deploy uniquement via git push",
+      "proofs": [
+        "external:vercel:cli:identity:100saascreation",
+        "external:vercel:cli:project_created:portfolio-florent-le-bot"
+      ],
+      "resources": [
+        {
+          "provider": "vercel",
+          "type": "project",
+          "id": "portfolio-florent-le-bot",
+          "environment": "preview",
+          "status": "CREATED",
+          "ownership": "ucdo"
+        }
+      ],
+      "human_gates": [],
+      "details": {
+        "auth_mode": "cli",
+        "created": true,
+        "note": "pas de vercel deploy CLI",
+        "follow_up": "ensure framework=nextjs (vercel.json + API) ; commits with GitHub-mapped author"
+      },
+      "at": "2026-11-17T13:26:54+00:00"
+    },
+    "snyk": {
+      "adapter": "snyk",
+      "status": "PASS",
+      "evidence_level": "RUNTIME_TESTED",
+      "message": "scan Snyk CLI exécuté (session OAuth)",
+      "proofs": [
+        "external:snyk:cli_test"
+      ],
+      "resources": [],
+      "human_gates": [],
+      "details": {
+        "vulnerabilities": 0,
+        "exit_code": 0
+      },
+      "at": "2026-11-17T13:27:17+00:00"
+    }
+  },
+  "layers": {
+    "C7_cloud": {
+      "status": "PASS",
+      "evidence_level": "EXTERNAL_CONNECTION_VERIFIED",
+      "adapters": {
+        "github": "PASS",
+        "neon": "PASS",
+        "vercel": "PASS"
+      }
+    },
+    "C8_runtime": {
+      "status": "SKIP",
+      "skip_ne_pass": true,
+      "note": "C8_runtime requires RUNTIME_TESTED",
+      "evidence_level": "EXTERNAL_CONNECTION_VERIFIED",
+      "adapters": {
+        "vercel": "PASS"
+      }
+    },
+    "C9_payments_test": {
+      "status": "SKIP",
+      "note": "stripe test: not run",
+      "skip_ne_pass": true
+    },
+    "C10_ci_security": {
+      "status": "PASS",
+      "evidence_level": "RUNTIME_TESTED",
+      "adapters": {
+        "github": "PASS",
+        "snyk": "PASS"
+      }
+    }
+  },
+  "human_gates": [],
+  "status": "READY_FOR_PRODUCTION_DOC",
+  "updated_at": "2026-11-17T13:27:17+00:00",
+  "sha256": "4fb14403b81030b72866e47e2eea1f711dbb253cecd9793b16d9af9c619227ec"
+}

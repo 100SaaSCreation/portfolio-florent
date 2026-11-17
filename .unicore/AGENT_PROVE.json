@@ -1,11 +1,11 @@
 {
   "schema": "UNICORE-AGENT-PROVE-1",
   "version": "1.2.0",
-  "at": "2026-11-17T15:19:15.185320+00:00",
+  "at": "2026-11-17T15:38:19.380702+00:00",
   "session_id": "unicore-portfolio",
-  "context_sha256": "86f35f6a7dcca249184bf4b775e0468f33eb391336d22528df5b8ab3b039af86",
+  "context_sha256": "6194a2f25d07b54c90f1ecab0c755b1ca7ecd67f00647b8d5c540dcfaff5bc6b",
   "intervention_sha256": "59467cc2025251783a64dd7f7c6baaf18701e72aac94f0aa1b887d08fd498fbd",
-  "session_tip_sha256": "d76bf48c826200daf0acdd5dacfa0bae2069fa3631dff9d617501033ba477733",
+  "session_tip_sha256": "ddff0f770c58427b7409ec37f08a581af948c4a822c4cffafe3c3a94a94b5e6e",
   "mission_aligned": true,
   "note": ""
 }

@@ -19,7 +19,7 @@ export const defaultPortfolioContent: PortfolioContent = {
   projectsIntro: {
     eyebrow: "Projets",
     title: "Des applications réelles, pas des maquettes.",
-    lead: "Quatre SaaS conçus et développés de bout en bout : authentification, paiement, internationalisation, données. Les dépôts sont privés ; une démonstration est possible sur demande.",
+    lead: "Quatre SaaS conçus et développés de bout en bout : authentification, paiement, internationalisation, données. Trois sont publics ; Cap's Voice reste en démo sur demande.",
   },
   projects: [
     {
@@ -49,7 +49,8 @@ export const defaultPortfolioContent: PortfolioContent = {
         "Liste de courses générée depuis les repas planifiés",
       ],
       stack: ["Next.js 15", "React 19", "Prisma 7", "Neon", "Stripe", "FR / EN"],
-      status: "private",
+      status: "live",
+      url: "https://ti-food.fr",
     },
     {
       slug: "speedgest",
@@ -63,7 +64,8 @@ export const defaultPortfolioContent: PortfolioContent = {
         "Mode invité, abonnements, FR / EN",
       ],
       stack: ["Next.js 16", "React 19", "Prisma 7", "Better Auth", "TanStack Query", "Stripe"],
-      status: "private",
+      status: "live",
+      url: "https://speedgest.vercel.app",
     },
     {
       slug: "caps-voice",
@@ -82,7 +84,7 @@ export const defaultPortfolioContent: PortfolioContent = {
   ],
   facts: [
     { value: "4", label: "applications SaaS conçues et développées" },
-    { value: "1", label: "en production publique" },
+    { value: "3", label: "en production publique" },
     { value: "FR / EN", label: "interfaces internationalisées" },
     { value: "9", label: "portes de gouvernance avant chaque livraison" },
   ],

@@ -1,0 +1,181 @@
+{
+  "schema": "UNICORE-GITHUB-PIPELINE-1",
+  "at": "2026-11-17T15:43:29+00:00",
+  "contract": "GITHUB_PIPELINE-1.0",
+  "action": "prove",
+  "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
+  "total": 22,
+  "pass": 22,
+  "fail": 0,
+  "checks": [
+    {
+      "id": "ci.workflow",
+      "pass": true,
+      "detail": "ci.yml"
+    },
+    {
+      "id": "ci.permissions_contents_read",
+      "pass": true,
+      "detail": "least privilege Actions"
+    },
+    {
+      "id": "ci.concurrency",
+      "pass": true,
+      "detail": "cancel stale"
+    },
+    {
+      "id": "ci.on_pull_request",
+      "pass": true,
+      "detail": "PR triggers CI"
+    },
+    {
+      "id": "ci.on_push",
+      "pass": true,
+      "detail": "push triggers CI"
+    },
+    {
+      "id": "ci.lint",
+      "pass": true,
+      "detail": "lint job"
+    },
+    {
+      "id": "ci.test",
+      "pass": true,
+      "detail": "test job"
+    },
+    {
+      "id": "ci.build",
+      "pass": true,
+      "detail": "build job"
+    },
+    {
+      "id": "ci.frozen_lockfile",
+      "pass": true,
+      "detail": "reproducible install"
+    },
+    {
+      "id": "ci.snyk_pinned",
+      "pass": true,
+      "detail": "Snyk pinned"
+    },
+    {
+      "id": "ci.snyk_skip_debt",
+      "pass": true,
+      "detail": "Snyk or explicit debt path"
+    },
+    {
+      "id": "ci.no_master_pin",
+      "pass": true,
+      "detail": "no floating @master"
+    },
+    {
+      "id": "pr.template",
+      "pass": true,
+      "detail": "PR template"
+    },
+    {
+      "id": "pr.security_checklist",
+      "pass": true,
+      "detail": "security section"
+    },
+    {
+      "id": "codeowners",
+      "pass": true,
+      "detail": "CODEOWNERS"
+    },
+    {
+      "id": "codeowners.workflows",
+      "pass": true,
+      "detail": "workflows owned"
+    },
+    {
+      "id": "issue.bug",
+      "pass": true,
+      "detail": "bug template"
+    },
+    {
+      "id": "dependabot",
+      "pass": true,
+      "detail": "Dependabot config"
+    },
+    {
+      "id": "security.md",
+      "pass": true,
+      "detail": "SECURITY.md"
+    },
+    {
+      "id": "stack_connect",
+      "pass": true,
+      "detail": "STACK_CONNECT.md"
+    },
+    {
+      "id": "stack_connect.github_checklist",
+      "pass": true,
+      "detail": "github checklist"
+    },
+    {
+      "id": "stack_connect.no_skip_as_pass",
+      "pass": true,
+      "detail": "SKIP≠PASS documented"
+    }
+  ],
+  "verdict": "PASS",
+  "score": {
+    "schema": "UNICORE-GITHUB-PIPELINE-SCORE-1",
+    "score_total": 100,
+    "score_max": 100,
+    "verdict": "GITHUB_PIPELINE_PRO",
+    "dimensions": {
+      "ci_workflow_hardening": {
+        "score": 30,
+        "max": 30,
+        "note": "12/12 CI checks"
+      },
+      "pr_codeowners_issues": {
+        "score": 20,
+        "max": 20,
+        "note": "PR+CODEOWNERS(+workflows)+issues"
+      },
+      "dependabot_security_md": {
+        "score": 20,
+        "max": 20,
+        "note": "Dependabot+SECURITY.md"
+      },
+      "stack_connect_docs": {
+        "score": 15,
+        "max": 15,
+        "note": "STACK_CONNECT"
+      },
+      "snyk_supply_chain": {
+        "score": 15,
+        "max": 15,
+        "note": "Snyk pinned + debt path"
+      }
+    }
+  },
+  "human_gates": [
+    {
+      "id": "branch_protection_main",
+      "status": "HUMAN_REQUIRED",
+      "note": "GitHub Free private: API 403 possible; UI rulesets/protection"
+    },
+    {
+      "id": "dependabot_alerts_ui",
+      "status": "HUMAN_REQUIRED",
+      "note": "Enable alerts/security updates in repo settings"
+    },
+    {
+      "id": "secret_scanning",
+      "status": "HUMAN_REQUIRED",
+      "note": "Free on public; GHSP/GHAS for private"
+    }
+  ],
+  "web_sources": [
+    "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+    "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository",
+    "https://best.openssf.org/SCM-BestPractices/github/",
+    "https://docs.github.com/en/repositories/creating-and-managing-repositories/best-practices-for-repositories",
+    "https://docs.github.com/en/code-security/tutorials/implement-supply-chain-best-practices/securing-code",
+    "https://owasp.github.io/DevSecOpsGuideline/2-Process/2-2-Develop/2-2-3-Secure-Code-Review/"
+  ]
+}

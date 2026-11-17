@@ -42,13 +42,22 @@ export const viewport: Viewport = {
   themeColor: "#e9ecf1",
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: identity.name,
+  jobTitle: identity.role,
+  email: identity.email,
+  url: siteUrl,
+  sameAs: ["https://lienmuet2.vercel.app", "https://ti-food.fr", "https://speedgest.vercel.app"],
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <head>
-        {/* next/font auto-héberge les woff2 : pas d'origine tierce à préconnecter.
-            dns-prefetch sur l'origine de prod accélère les assets hashés au premier hit froid. */}
         <link rel="dns-prefetch" href={siteUrl} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body className="bg-canvas font-text text-ink">{children}</body>
     </html>

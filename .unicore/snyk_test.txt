@@ -1,0 +1,39 @@
+e": "MPL-1.1",
+        "severity": "medium",
+        "instructions": ""
+      },
+      "MPL-2.0": {
+        "licenseType": "MPL-2.0",
+        "severity": "medium",
+        "instructions": ""
+      },
+      "MS-RL": {
+        "licenseType": "MS-RL",
+        "severity": "medium",
+        "instructions": ""
+      },
+      "SimPL-2.0": {
+        "licenseType": "SimPL-2.0",
+        "severity": "high",
+        "instructions": ""
+      }
+    }
+  },
+  "packageManager": "pnpm",
+  "ignoreSettings": {
+    "adminOnly": false,
+    "reasonRequired": false,
+    "disregardFilesystemIgnores": false,
+    "autoApproveIgnores": false,
+    "approvalWorkflowEnabled": false
+  },
+  "summary": "No high or critical severity vulnerabilities",
+  "severityThreshold": "high",
+  "filesystemPolicy": false,
+  "uniqueCount": 0,
+  "projectName": "portfolio-florent",
+  "foundProjectCount": 3,
+  "displayTargetFile": "pnpm-lock.yaml",
+  "hasUnknownVersions": false,
+  "path": "C:\\dev\\moteur\\projets\\portfolio-florent"
+}

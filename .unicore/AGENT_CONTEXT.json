@@ -1,7 +1,7 @@
 {
   "schema": "UNICORE-AGENT-CONTEXT-1",
   "version": "1.2.0",
-  "generated_at": "2026-11-17T15:19:15.172340+00:00",
+  "generated_at": "2026-11-17T15:38:19.361605+00:00",
   "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
   "engine": {
     "name": "UNICORE",
@@ -144,18 +144,11 @@
   "restitution_status": null,
   "journal_tail": [],
   "session_tip": {
-    "sha256": "d76bf48c826200daf0acdd5dacfa0bae2069fa3631dff9d617501033ba477733",
+    "sha256": "ddff0f770c58427b7409ec37f08a581af948c4a822c4cffafe3c3a94a94b5e6e",
     "session_id": "unicore-portfolio",
-    "at": "2026-11-17T15:19:15.006904+00:00"
+    "at": "2026-11-17T15:38:19.115798+00:00"
   },
   "session_tail": [
-    {
-      "at": "2026-11-17T09:55:22.478841+00:00",
-      "role": "agent",
-      "kind": "note",
-      "content": "fabricate-run site_vitrine",
-      "sha256": "4557b7438f5f2b9ff122db2bfdbe47d04bd0c8c91e3530f5b42f734530932f80"
-    },
     {
       "at": "2026-11-17T09:55:58.250158+00:00",
       "role": "agent",
@@ -204,6 +197,13 @@
       "kind": "note",
       "content": "CMS portfolio: Prisma+Neon, auth admin, /admin, pages dynamiques",
       "sha256": "d76bf48c826200daf0acdd5dacfa0bae2069fa3631dff9d617501033ba477733"
+    },
+    {
+      "at": "2026-11-17T15:38:19.115798+00:00",
+      "role": "agent",
+      "kind": "note",
+      "content": "Max scores: CSP, RGPD, CI, Snyk, admin harden, UX/contenu",
+      "sha256": "ddff0f770c58427b7409ec37f08a581af948c4a822c4cffafe3c3a94a94b5e6e"
     }
   ],
   "rules_for_agent": [
