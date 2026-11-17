@@ -1,12 +1,13 @@
 {
   "schema": "UNICORE-GO-LIVE-TERMINAL-PROOF-1",
-  "at": "2026-11-17T10:35:53+00:00",
+  "at": "2026-11-17T13:08:48+00:00",
+  "public_url": "https://portfolio-florent-silk.vercel.app",
   "commands": {
     "test": {
       "status": "PASS",
       "exit_code": 0,
       "cmd": "pnpm test",
-      "tests": "13/13"
+      "tests": "16/16"
     },
     "build": {
       "status": "PASS",
@@ -24,27 +25,27 @@
       "exit_code": 0,
       "cmd": "snyk test",
       "evidence": ".unicore/audit/snyk.json",
-      "note": "92 deps, 0 vuln ; quota mensuel 200 tests atteint (avertissement)"
+      "note": "0 vuln ; snyk-connect-open auth OK"
     },
     "lh_soft": {
       "status": "PASS",
       "exit_code": 0,
-      "cmd": "lighthouse http://localhost:3107 (next start, build prod)",
-      "evidence": ".unicore/audit/lighthouse.json",
+      "cmd": "lighthouse https://portfolio-florent-silk.vercel.app",
+      "evidence": ".unicore/audit/lighthouse-public.json",
       "scores": {
-        "performance": 90,
+        "performance": 72,
         "accessibility": 100,
         "best_practices": 100,
         "seo": 100
       },
-      "note": "URL locale prouvee, pas de preview publique"
+      "note": "perf publique 72 (local 90) ; a11y/seo/bp 100 ; console OK"
     },
     "github_pipeline": {
       "status": "SKIP",
       "exit_code": null,
       "cmd": "github-pipeline-prove",
       "debt": true,
-      "reason": "depot GitHub non cree : publication WRITE_SHARED en attente d'accord"
+      "reason": "site_vitrine sans workflow CI seedé ; deploy Vercel Ready observé"
     }
   }
 }
