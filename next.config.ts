@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // App Router + Tailwind (~10 KiB) : inline le CSS pour casser la chaîne critique HTML→CSS (LCP).
+  experimental: {
+    inlineCss: true,
+  },
   async headers() {
     return [
       {

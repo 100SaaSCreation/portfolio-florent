@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "./design-tokens.css";
 
 @theme {
   --color-canvas: #e9ecf1;
