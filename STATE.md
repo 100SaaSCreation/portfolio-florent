@@ -23,8 +23,15 @@
 - UNICORE : `lh-online-prove` (PageSpeed online) ; LH localhost ≠ PASS online
 - UCDO : GitHub + Vercel + Snyk PASS ; ancien domaine `portfolio-florent.vercel.app` = Vite legacy
 
+### DB backup (2026-11-23)
+- Preuve : `.unicore/audit/db_backup.json` → **PASS_PARTIAL** + debt
+- Snapshot Neon `snap-lingering-sunset-ba7kjy39` + restore probe PASS (preview non finalisée)
+- Workflow `.github/workflows/db-backup.yml` (cron 03:00 UTC `pg_dump`)
+- Schedule Neon daily : **HUMAN** (Free — `backup schedule creation is not enabled`)
+
 ### Next actions
-- Push + redeploy Vercel ; nettoyer CR/LF env `NEXT_PUBLIC_SITE_URL`
-- Relancer `lh-online-prove` jusqu'à PASS (SEO 100)
+- Upgrade Neon Launch → `neon snapshots schedule set --branch main --frequency daily --hour 3 --retention 604800`
+- Ajouter secret GitHub `DATABASE_URL` (hors chat) pour le cron pg_dump
+- Optionnel : secrets S3/R2 pour offsite
 - H3 : domaine custom (optionnel)
 <!-- PRODUCT:END -->

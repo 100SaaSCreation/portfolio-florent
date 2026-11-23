@@ -1,0 +1,83 @@
+{
+  "schema": "UNICORE-DB-BACKUP-1",
+  "contract": "DB-BACKUP-PRO-1.0",
+  "version": "1.0.0",
+  "at": "2026-11-23T16:31:03+00:00",
+  "root": "C:\\dev\\moteur\\projets\\portfolio-florent",
+  "status": "PASS_PARTIAL",
+  "debt": true,
+  "checks": {
+    "neon_project": {
+      "project_id": "tiny-sound-82293690",
+      "branch": "main",
+      "sources": [
+        "UCDO_STATE.results.neon.resources",
+        "neon_name:portfolio-florent-le-bot"
+      ]
+    },
+    "history": {
+      "status": "PASS",
+      "exit_code": 0,
+      "history_retention": "6 hours",
+      "raw_excerpt": "Project\nName               portfolio-florent-le-bot\nID                 tiny-sound-82293690\nRegion ID          aws-eu-central-1\nPostgres Version   18\nOrganization       org-blue-dust-76461833\nDefault Compute    0.25 CU\nHistory Retention  6 hours\nCreated At         2026-11-17T13:26:45Z\nUpdated At         2026-11-17T13:27:02Z\n"
+    },
+    "schedule": {
+      "status": "FAIL",
+      "exit_code": 0,
+      "configured": false,
+      "detail": "No automatic snapshot schedule is configured."
+    },
+    "snapshot": {
+      "status": "FAIL",
+      "exit_code": 1,
+      "name": "unicore-pro-20261123T163056Z",
+      "detail": "ERROR: snapshots limit exceeded"
+    },
+    "snapshots_list": {
+      "status": "PASS",
+      "exit_code": 0,
+      "count": 1,
+      "items": [
+        {
+          "snapshots": "snap-lingering-sunset-ba7kjy39"
+        }
+      ],
+      "detail": null
+    },
+    "pgdump_workflow": {
+      "status": "PASS",
+      "path": ".github/workflows/db-backup.yml",
+      "has_pg_dump": true,
+      "has_schedule": true
+    },
+    "schedule_set": {
+      "status": "FAIL",
+      "exit_code": 1,
+      "debt": true,
+      "human_required": "NEON_LAUNCH_OR_SCALE_REQUIRED_FOR_SCHEDULE",
+      "detail": "ERROR: backup schedule creation is not enabled for this project"
+    },
+    "restore_probe": {
+      "status": "PASS",
+      "exit_code": 0,
+      "branch_name": "unicore-restore-probe-20261123T163100Z",
+      "snapshot_id": "snap-lingering-sunset-ba7kjy39",
+      "finalized": false,
+      "detail": "restored branch\nName           unicore-restore-probe-20261123T163100Z\nID             br-lively-sky-baebwlbo\nCurrent State  init\nCreated At     2026-11-23T16:31:01Z\n\noperations\nID                                    Action              Status\n3ecf8e96-2f53-4f58-b3b0-dcb357d55d26  timeline_unarchive  running\n02c3dd1e-57e3-4b45-b788-3bf214ac100d  create_branch       scheduling\ndb56cd83-2844-4f56-bb8b-6424043bc4a1  start_compute       scheduling\n01034f7f-e6ed-4b7b-afcc-0d8dce5b7464  epc_sync            scheduling\n8a036e42-6404-460d-8813-20188fc11291  epc_sync            scheduling\n\nRestore left un-finalized. Inspect branch br-lively-sky-baebwlbo, then run:\n  neon snapshots finalize br-lively-sky-baebwlbo --project-id tiny-sound-82293690",
+      "note": "Restore preview non finalisé — production intacte",
+      "cleanup": {
+        "status": "PASS",
+        "exit_code": 0,
+        "detail": "Name           unicore-restore-probe-20261123T163100Z\nID             br-lively-sky-baebwlbo\nCurrent State  ready\nCreated At     2026-11-23T16:31:01Z\n"
+      }
+    }
+  },
+  "human_required": [
+    "NEON_LAUNCH_OR_SCALE_REQUIRED_FOR_SCHEDULE",
+    "NEON_UPGRADE_LAUNCH_FOR_DAILY_SCHEDULE"
+  ],
+  "blocking": [],
+  "rpo_note": "Neon Free PITR ~6h + snapshot manuel + pg_dump nightly (artefact 7j / S3 si secrets). Schedule Neon daily = plan Launch/Scale.",
+  "restore_note": "Restauration à démontrer : neon snapshots restore <id> OU pg_restore depuis artefact. Sans restore test = pas de claim PRO complet.",
+  "note": "SKIP≠PASS ; schedule absent sur Free = HUMAN_REQUIRED, pas un PASS inventé"
+}
