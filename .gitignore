@@ -11,3 +11,9 @@ next-env.d.ts
 .vercel
 .unicore/checkpoints/
 .unicore/handoff/
+# DB dumps — jamais commit (fuite données)
+backups/
+*.sql
+*.sql.gz
+*.dump
+*.pgdump

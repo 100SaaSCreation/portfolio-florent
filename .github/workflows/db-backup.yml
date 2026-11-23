@@ -1,5 +1,8 @@
 name: DB backup (pg_dump)
 
+# PRO secrets : jamais d'artifact GitHub sur repo public (fuite dump).
+# Offsite obligatoire via S3/R2 chiffré. SKIP≠PASS si secrets absents.
+
 on:
   schedule:
     - cron: "0 3 * * *"
@@ -18,67 +21,91 @@ jobs:
     timeout-minutes: 30
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      # Optionnel : S3/R2 pour offsite (sinon artefact GitHub 7j)
       AWS_ACCESS_KEY_ID: ${{ secrets.BACKUP_S3_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.BACKUP_S3_SECRET_ACCESS_KEY }}
       BACKUP_S3_BUCKET: ${{ secrets.BACKUP_S3_BUCKET }}
       BACKUP_S3_ENDPOINT: ${{ secrets.BACKUP_S3_ENDPOINT }}
     steps:
       - uses: actions/checkout@v4
-      - name: Require DATABASE_URL
+
+      - name: Mask secrets in logs
         run: |
-          if [ -z "$DATABASE_URL" ]; then
-            echo "DATABASE_URL secret missing — SKIP debt (≠ PASS)"
-            mkdir -p .unicore/audit
+          if [ -n "${DATABASE_URL:-}" ]; then
+            echo "::add-mask::$DATABASE_URL"
+          fi
+          if [ -n "${AWS_SECRET_ACCESS_KEY:-}" ]; then
+            echo "::add-mask::$AWS_SECRET_ACCESS_KEY"
+          fi
+          if [ -n "${AWS_ACCESS_KEY_ID:-}" ]; then
+            echo "::add-mask::$AWS_ACCESS_KEY_ID"
+          fi
+
+      - name: Require DATABASE_URL + S3 offsite (no GitHub artifact ever)
+        run: |
+          set -euo pipefail
+          mkdir -p .unicore/audit
+          VISIBILITY="$(gh api "repos/${GITHUB_REPOSITORY}" --jq .visibility 2>/dev/null || echo unknown)"
+          echo "repo_visibility=$VISIBILITY"
+          if [ -z "${DATABASE_URL:-}" ]; then
             echo '{"schema":"UNICORE-DB-BACKUP-RUN-1","status":"SKIP","debt":true,"reason":"DATABASE_URL_MISSING"}' > .unicore/audit/db_backup_run.json
+            echo "SKIP debt: DATABASE_URL missing (≠ PASS)"
             exit 0
           fi
-      - name: Install postgres client
-        run: sudo apt-get update && sudo apt-get install -y postgresql-client
-      - name: pg_dump
+          # Artifact Actions interdit (surtout repo public). Offsite S3/R2 obligatoire.
+          if [ -z "${BACKUP_S3_BUCKET:-}" ] || [ -z "${AWS_ACCESS_KEY_ID:-}" ] || [ -z "${AWS_SECRET_ACCESS_KEY:-}" ]; then
+            echo "{\"schema\":\"UNICORE-DB-BACKUP-RUN-1\",\"status\":\"FAIL\",\"debt\":false,\"reason\":\"OFFSITE_S3_REQUIRED\",\"repo_visibility\":\"$VISIBILITY\",\"note\":\"GitHub artifact dump interdit — fuite données\"}" > .unicore/audit/db_backup_run.json
+            echo "FAIL: S3/R2 secrets required — no GitHub artifact dump"
+            exit 2
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Install postgres client + aws cli
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client awscli
+
+      - name: pg_dump to ephemeral file
         run: |
           set -euo pipefail
           STAMP=$(date -u +%Y%m%dT%H%M%SZ)
           mkdir -p backups
           OUT="backups/db-${STAMP}.sql.gz"
+          # Ne jamais echo DATABASE_URL
           pg_dump --no-owner --no-acl "$DATABASE_URL" | gzip -9 > "$OUT"
-          ls -lh "$OUT"
+          SIZE=$(wc -c < "$OUT" | tr -d ' ')
+          echo "backup_bytes=$SIZE"
+          if [ "$SIZE" -le 64 ]; then
+            echo "FAIL: dump too small"
+            exit 2
+          fi
           echo "BACKUP_FILE=$OUT" >> "$GITHUB_ENV"
-          mkdir -p .unicore/audit
-          python - <<'PY'
-          import json, os
-          from datetime import datetime, timezone
-          path = os.environ["BACKUP_FILE"]
-          size = os.path.getsize(path)
-          payload = {
-            "schema": "UNICORE-DB-BACKUP-RUN-1",
-            "at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
-            "status": "PASS" if size > 64 else "FAIL",
-            "tool": "pg_dump",
-            "file": path,
-            "bytes": size,
-            "online": False,
-            "note": "dump local CI — uploader S3 si secrets présents",
-          }
-          open(".unicore/audit/db_backup_run.json", "w", encoding="utf-8").write(
-              json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
-          )
-          if size <= 64:
-              raise SystemExit(2)
-          PY
-      - name: Upload artifact (7 days)
-        uses: actions/upload-artifact@v4
-        with:
-          name: db-backup-${{ github.run_id }}
-          path: backups/*.sql.gz
-          retention-days: 7
-      - name: Optional S3/R2 upload
-        if: ${{ env.BACKUP_S3_BUCKET != '' && env.AWS_ACCESS_KEY_ID != '' }}
+
+      - name: Upload to S3/R2 only (no GitHub artifact)
         run: |
           set -euo pipefail
-          KEY="portfolio/$(basename "$BACKUP_FILE")"
-          ARGS=(aws s3 cp "$BACKUP_FILE" "s3://$BACKUP_S3_BUCKET/$KEY")
+          KEY="portfolio-florent/$(basename "$BACKUP_FILE")"
+          ARGS=(aws s3 cp "$BACKUP_FILE" "s3://${BACKUP_S3_BUCKET}/${KEY}" --only-show-errors)
           if [ -n "${BACKUP_S3_ENDPOINT:-}" ]; then
             ARGS+=(--endpoint-url "$BACKUP_S3_ENDPOINT")
           fi
           "${ARGS[@]}"
+          # shred local copy
+          rm -f "$BACKUP_FILE"
+          mkdir -p .unicore/audit
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          payload = {
+            "schema": "UNICORE-DB-BACKUP-RUN-1",
+            "at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+            "status": "PASS",
+            "tool": "pg_dump+s3",
+            "artifact_github": False,
+            "offsite": True,
+            "note": "dump ephemere local + upload S3/R2; pas d artifact Actions",
+          }
+          open(".unicore/audit/db_backup_run.json", "w", encoding="utf-8").write(
+              json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+          )
+          PY
