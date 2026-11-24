@@ -67,7 +67,7 @@ jobs:
               raise SystemExit(2)
           PY
       - name: Upload artifact (7 days)
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: db-backup-${{ github.run_id }}
           path: backups/*.sql.gz
